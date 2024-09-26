@@ -1,0 +1,24 @@
+div {
+  border: 5px solid black;
+  padding: 10px;
+}
+
+div.uno {
+  margin-bottom: 10px;
+}
+
+div.dos {
+  margin-top: 0px;
+}
+
+div.tres {
+  display: inline-block;
+  width: 200px;
+  margin-right: 10px;
+}
+
+div.cuatro {
+  display: inline;
+  width: 200px;
+  margin-left: 0px;
+}
