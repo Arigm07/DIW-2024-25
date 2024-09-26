@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+p.def {
+  font-size: 16pt;
+}
+
+div {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 18pt;
+  font-weight: bold;
+}
+
+.absolute {
+  position: absolute;
+  padding: 20px;
+  right: 10px;
+  top: 10px;
+  background-color: lightyellow;
+}
+
+.fixed {
+  position: fixed;
+  padding: 20px;
+  right: 100px;
+  bottom: 50px;
+  border-radius: 50%;
+  z-index: 999;
+  background-color: lightskyblue;
+}
+
+.relative {
+  position: relative;
+  padding: 5px 10px;
+  background-color: lightcyan;
+  /* Prueba a modificar estos valores y observar el comportamiento */
+  top: 0px;
+  left: 0px;
+}
+
+.contenedor-relative {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  padding: 10px;
+  background-color: lightpink;
+}
+
+.sticky {
+  position: sticky;
+  padding: 20px;
+  background-color: lightgreen;
+  text-align: center;
+  top: 0px;
+}

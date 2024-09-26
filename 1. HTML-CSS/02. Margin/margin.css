@@ -4,7 +4,7 @@ div {
 }
 
 div.uno {
-  margin-bottom: 10px;
+  margin-bottom: 50px;
 }
 
 div.dos {
@@ -14,7 +14,7 @@ div.dos {
 div.tres {
   display: inline-block;
   width: 200px;
-  margin-right: 10px;
+  margin-right: 50px;
 }
 
 div.cuatro {

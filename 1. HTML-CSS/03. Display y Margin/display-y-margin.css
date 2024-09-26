@@ -1,0 +1,41 @@
+code {
+  font-size: 14px;
+}
+
+.container {
+  border: 5px solid #ccc;
+  padding: 10px;
+  width: 600px;
+}
+
+.inline-box {
+  display: inline;
+  border: 2px solid blue;
+  padding: 15px;
+  /* Observa cómo las propiedades height y width no tienen efecto */
+  height: 300px;
+  width: 300px;
+  /* Observa cómo los márgenes verticales tampoco tienen efecto */
+  margin-block: 200px;
+  margin-inline: 20px;
+}
+
+.inline-block-box {
+  display: inline-block;
+  border: 2px solid green;
+  padding: 15px;
+  /* Observa cómo las propiedades height y width sí tienen efecto */
+  width: 100px;
+  height: 100px;
+  /* Observa cómo los márgenes verticales también tienen efecto */
+  margin-block: 20px;
+  margin-inline: 10px;
+}
+
+.block-box {
+  display: block;
+  border: 2px solid red;
+  padding: 15px;
+  margin-block: 20px;
+  margin-inline: 10px;
+}

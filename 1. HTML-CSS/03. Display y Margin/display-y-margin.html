@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display y margin</title>
+  <link rel="stylesheet" href="display-y-margin.css">
+</head>
+
+<body>
+  <div class="container">
+    <span class="inline-box">inline</span>
+    <span class="inline-box">inline</span>
+    <span class="inline-box">inline</span>
+    <div class="inline-block-box">inline-block</div>
+    <div class="inline-block-box">inline-block</div>
+    <div class="inline-block-box">inline-block</div>
+    <div class="block-box">block</div>
+    <div class="block-box">block</div>
+    <div class="block-box">block</div>
+  </div>
+
+  <p><strong>Explicación</strong> de los valores de la propiedad CSS <code>inline</code>:</p>
+  <ul>
+    <li><strong><code>inline</code>:</strong> Los elementos con <code>display: inline</code> se comportan como elementos en línea, formando parte del flujo de texto. Sólo ocupan el espacio necesario para su contenido, no puedes establecer ancho o alto ni le afectan los márgenes en vertical, pero sí en horizontal.</li>
+    <li><strong><code>inline-block</code>:</strong> Los elementos con <code>display: inline-block</code> se comportan como elementos en línea, formando parte del flujo de texto, pero permiten establecer un ancho y alto específicos. Ocupan espacio según su contenido y dimensiones definidas.</li>
+    <li><strong><code>block</code>:</strong> Los elementos con <code>display: block</code> son bloques independientes que ocupan todo el ancho disponible en su contenedor. Cada elemento block comienza en una nueva línea y puedes definir su ancho y alto.</li>
+  </ul>
+
+  <p>Otro aspecto <strong>importante</strong> de los elementos <code>inline</code> es que los posibles valores de <code>padding</code> o <code>border</code> <u>no afectan a las dimensiones de su padre</u>. Es decir, si aumentas el <code>padding</code> o el <code>border</code> de un elemento <code>inline</code>, su padre no se adaptará al cambio de dimensiones.</p>
+</body>
+
+</html>
