@@ -1,8 +1,11 @@
 :root {
-  --header-bg-color: #2c3e50;
-  --header-color: #ecf0f1;
-  --header-color-hover: #3498db;
-  --body-bg-color: #f0f0f0;
+  --body-bg-color: #f0f0f0; /* Color de fondo del body */
+  --header-bg-color: #2c3e50; /* Color de fondo del header */
+  --header-color: #ecf0f1; /* Color de texto del header */
+  --header-color-hover: #3498db; /* Color de texto del header on hover */
+  --nav-bg-color: #46627f; /* Color de fondo de nav */
+  --nav-link-color: #ecf0f1; /* Color de texto de los enlaces */
+  --nav-link-bg-hover-color: #1a8ebc; /* Color de fondo de los enlaces on hover */
 }
 
 *,
@@ -15,7 +18,7 @@
 
 /* Estilos generales */
 body {
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: var(--body-bg-color);
 }
 
@@ -32,6 +35,7 @@ header {
   position: sticky;
   top: 0;
   box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+  z-index: 999;
 }
 
 header h1 {
@@ -40,19 +44,21 @@ header h1 {
 }
 
 header nav {
+  background-color: var(--nav-bg-color);
   display: flex;
   justify-content: center;
 }
 
 header nav a {
+  color: var(--nav-link-color);
   padding: 6px 12px;
   font-size: 1.125em;
-  color: #ecf0f1;
   text-decoration: none;
 }
 
 header nav a:hover {
-  background-color: var(--header-color-hover);
+  background-color: var(--nav-link-bg-hover-color);
+  color: var(--header-color);
 }
 
 /* Contenedor principal */
@@ -105,17 +111,6 @@ img.img-centered.max-100pc {
   margin-bottom: 30px;
 }
 
-/* Estilos para el código HTML */
-code {
-  font-size: 1.25em;
-}
-
-code.inline-code {
-  color: #d63384;
-  font-weight: bold;
-  word-wrap: break-word;
-}
-
-pre {
-  font-family: Consolas, monospace;
+code:not(pre code) {
+  font-size: 1em !important;
 }
