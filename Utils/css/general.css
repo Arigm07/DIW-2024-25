@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
+code {
+  text-wrap: wrap;
+  white-space: pre-wrap;
+}
+
+code:not(pre code) {
+  color: #d63384;
+  font-size: 0.9em;
+  font-weight: bold;
+  word-wrap: break-word;
+  background-color: transparent;
+  font-family: "Roboto Mono", monospace;
+}
+
+/* Estilos para el botón de copiar */
+pre {
+  position: relative;
+}
+
+.hljs-copy {
+  position: absolute;
+  cursor: pointer;
+  right: 5px;
+  top: 5px;
+  background-color: #4d4d4d;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.hljs-copy:hover {
+  background-color: #7c7c7c;
+}
+
+/* Panel de explicación */
+.explanation {
+  background-color: #fff9c4;
+  border: 1px solid #fff59d;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 3px; /* Bordes ligeramente redondeados */
+  font-family: system-ui, Roboto, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.explanation:hover {
+  background-color: #fff59d; /* Color ligeramente más oscuro */
+}
+
+.explanation p {
+  margin: 0 0 12px 0;
+}
+
+.explanation p:last-child {
+  margin-bottom: 0;
+}
