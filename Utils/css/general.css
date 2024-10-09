@@ -41,17 +41,13 @@ pre {
 
 /* Panel de explicación */
 .explanation {
-  background-color: #fff9c4;
-  border: 1px solid #fff59d;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+  background-color: #fff59d;
+  /* border: 1px solid #fff59d; */
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
   padding: 20px;
-  margin-top: 30px;
-  border-radius: 3px; /* Bordes ligeramente redondeados */
+  margin-top: 50px;
+  border-radius: 3px;
   font-family: system-ui, Roboto, "Open Sans", "Helvetica Neue", sans-serif;
-}
-
-.explanation:hover {
-  background-color: #fff59d; /* Color ligeramente más oscuro */
 }
 
 .explanation p {
@@ -59,5 +55,5 @@ pre {
 }
 
 .explanation p:last-child {
-  margin-bottom: 0;
+  margin: 0;
 }

@@ -97,10 +97,10 @@ img.img-centered {
 }
 
 img.img-centered.max-760px {
-  max-width: 760px;
+  max-width: 760px !important;
 }
 img.img-centered.max-100pc {
-  max-width: 100%;
+  max-width: 100% !important;
 }
 
 .img-sub {

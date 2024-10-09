@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ejercicios float y clear</title>
-  <link rel="stylesheet" href="ejercicios-float-y-clear.css">
   <link rel="stylesheet" href="../../Utils/css/general.css">
+  <link rel="stylesheet" href="ejercicios-float-y-clear.css">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/night-owl.min.css" integrity="sha512-i5X6Fdn/ZqvGSqPrdMa3FgcpXM/Nr6YccSKFYT93zljl/HZDEpvBbE5Pxp91eiWGccZLrL/LDQJd7fjTRYsVaA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Tema CSS para highlight.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/night-owl.min.css" integrity="sha512-i5X6Fdn/ZqvGSqPrdMa3FgcpXM/Nr6YccSKFYT93zljl/HZDEpvBbE5Pxp91eiWGccZLrL/LDQJd7fjTRYsVaA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
 
 <body>
@@ -63,7 +64,7 @@
       <img class="img-centered max-760px" src="img/img-ej-3.jpg" alt="Layout ejercicio 3">
       <pre><code class="language-html">&lt;body&gt;
   &lt;div class=&quot;div1&quot;&gt;Div1&lt;/div&gt;
-  &lt;div class=&quot;divtexto&quot;&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ipsum possimus eius cum a hic excepturi molestias. Neque saepe fugit, placeat dolor autem porro voluptatibus numquam iste reprehenderit molestias ea.&lt;/div&gt;
+  &lt;div class=&quot;texto&quot;&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ipsum possimus eius cum a hic excepturi molestias. Neque saepe fugit, placeat dolor autem porro voluptatibus numquam iste reprehenderit molestias ea.&lt;/div&gt;
   &lt;div class=&quot;div2&quot;&gt;Div2&lt;/div&gt;
   &lt;div style=&quot;clear: both;&quot;&gt;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem corporis perferendis eos facilis, commodi assumenda et sequi eligendi iure? Officiis tempora labore id expedita asperiores aperiam sint doloribus facere qui&lt;/div&gt;
 &lt;/body&gt;</code></pre>
@@ -144,7 +145,16 @@
 &lt;/div&gt;</code></pre>
 
       <p>CSS:</p>
-      <pre><code class="language-css">h1, h2, h3, h4, h5, div {
+      <pre><code class="language-css">* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+div {
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -154,13 +164,15 @@ p {
   font-weight: normal;
 }
 
-a, a:active, a:visited {
+a,
+a:active,
+a:visited {
   text-decoration: none;
-  color: #88ABC2;
+  color: #88abc2;
 }
 
 a:hover {
-  color: #FFBE56;
+  color: #ffbe56;
 }
 
 .example {
@@ -172,12 +184,11 @@ a:hover {
 }
 
 div {
-  box-sizing: border-box;
   padding: 20px;
 }
 
 .container {
-  background: #EBF7F8;
+  background: #ebf7f8;
 }
 
 .container.index {
@@ -186,28 +197,28 @@ div {
 }
 
 .header {
-  background: #FF9C56;
+  background: #ff9c56;
 }
 
 .logo {
-  background: #FF4D79;
+  background: #ff4d79;
 }
 
 .navigation {
-  background: #E85F43;
+  background: #e85f43;
 }
 
 .sidebar {
-  background: #FFBE56;
+  background: #ffbe56;
 }
 
 .main-content {
-  background: #88ABC2;
+  background: #88abc2;
   color: #fff;
 }
 
 .sub-content {
-  background: #49708A;
+  background: #49708a;
 }
 
 .sub-content-2 {
@@ -215,26 +226,26 @@ div {
 }
 
 .footer {
-  background: #AAD637;
+  background: #aad637;
 }
 
 .post {
-  background: #AAD637;
+  background: #aad637;
   margin-bottom: 20px;
 }
 
 .image {
-  background: #8EB22E;
+  background: #8eb22e;
 }
 
 .post_excerpt {
-  background: #708C24;
+  background: #708c24;
   padding: 20px;
   margin: 0;
 }
 
 .widget {
-  background: #BB326B;
+  background: #bb326b;
   margin: 10px;
   width: 200px;
   height: 200px;
@@ -244,10 +255,11 @@ div {
 }
 
 .clearfix::after {
-  content: "";
+  content: &quot;&quot;;
   clear: both;
   display: table;
-}</code></pre>
+}
+</code></pre>
     </section>
 
     <section id="ejercicio11" class="ejercicio">
@@ -262,7 +274,7 @@ div {
 
     <section id="ejercicio12" class="ejercicio">
       <h2>Ejercicio 12.</h2>
-      <h3>Obtén el siguiente layout de 3 columnas utilizando <code>float</code> a partir del HTML proporcionado. Valora si necesitas añadir o no la clase <code>clearfix</code>.</h3>
+      <h3>Obtén el siguiente layout de 3 columnas utilizando <code>float</code> a partir del HTML proporcionado. Valora si necesitas añadir o no la clase <code>clearfix</code> o usar la propiedad <code>clear</code> en algún elemento.</h3>
 
       <img class="img-centered max-760px" src="img/img-ej-12-1300x600px.jpg" alt="Layout ejercicio 11 1300x600px">
       <p class="img-sub">1300x600px de anchura</p>
@@ -477,8 +489,12 @@ body {
 
   </main>
 
+  <!-- highlight.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js" integrity="sha512-6yoqbrcLAHDWAdQmiRlHG4+m0g/CT/V9AGyxabG8j7Jk8j3r3K6due7oqpiRMZqcYe9WM2gPcaNNxnl2ux+3tA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <script>hljs.highlightAll();</script>
+
+  <!-- Función para copiar el contenido del pre tag -->
   <script src="../../Utils/js/copy-button-pre-tag.js"></script>
 
 </body>
