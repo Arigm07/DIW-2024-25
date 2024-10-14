@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>width: auto vs. 100%</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    h1 {
+      margin: 0;
+      text-align: center;
+    }
+
+    #container {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+
+    #container-ejemplo {
+      width: 400px;
+      padding: 0;
+      background: #ddd;
+      border: 1px solid black;
+      margin-bottom: 20px;
+    }
+
+    #container-ejemplo>* {
+      margin: 10px 50px;
+      padding: 10px 50px;
+      border: 10px solid #999;
+      border-width: 0 10px;
+      /* Cambia el valor de display para ver la diferencia */
+      display: block;
+    }
+
+    #child-1 {
+      width: auto;
+      background: #fee;
+    }
+
+    #child-2 {
+      width: 100%;
+      background: #efe;
+    }
+
+    .tabla-resumen {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    .tabla-resumen th,
+    .tabla-resumen td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    .tabla-resumen th {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    code {
+      color: #d63384;
+      font-size: 0.9em;
+      font-weight: bold;
+      word-wrap: break-word;
+      background-color: transparent;
+      font-family: "Roboto Mono", monospace;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <h1>Diferencias entre <code>width: auto</code> y <code>width: 100%</code></h1>
+
+    <p>En este ejemplo, el contenedor tiene una anchura de 400px. El primer hijo tiene una anchura de <code>width: auto</code>. El navegador, para calcular el espacio que le da al elemento, resta a esos 400px el margin horizontal (2*50px), el padding horizontal (2*50px) y el ancho de los bordes (2*10px). En total, 220px. Por tanto, otorga 180px (400-220) como ancho al elemento.</p>
+
+    <p>El segundo hijo tiene una anchura de <code>width: 100%</code>. Ese valor indica al navegador que el elemento debe ocupar el 100% del espacio disponible, es decir, la anchura del contenedor, que son 400px. Esos 400px sería lo que ocuparía el elemento si <code>box sizing: content-box</code>, pero como hemos establecido <code>box-sizing: border-box</code>, a esos 400px hay que restarles el padding (2*50px) y el borde (2*10px). Es decir, 400-100-20=280px.</p>
+
+    <p>Puedes comprobar con las DevTools que la anchura de los dos hijos es como hemos explicado.</p>
+
+    <div id="container-ejemplo">
+      <div id="child-1">
+        <p>Mi anchura es <code>auto</code>.</p>
+        <p>La suma de mis márgenes horizontales, paddings y bordes es de 220px.</p>
+      </div>
+
+      <div id="child-2">
+        <p>Mi anchura es <code>100%</code>.</p>
+        <p>La suma de mis márgenes horizontales, paddings y bordes también es de 220px. Pero mi anchura es <code>100%</code>, por lo que no quepo en el contenedor.</p>
+      </div>
+    </div>
+
+    <p>El ejemplo anterior está hecho con elementos de bloque, es decir, con <code>display: block</code>, pero podríamos modificar ese valor de <code>display</code> para ver el comportamiento. Aquí una tabla resumen:</p>
+    <table class="tabla-resumen">
+      <thead>
+        <tr>
+          <th>Display</th>
+          <th>width: auto</th>
+          <th>width: 100%</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>block</td>
+          <td>Ocupa todo el ancho disponible del contenedor.</td>
+          <td>Ocupa todo el ancho del contenedor, pero ignora márgenes internos.</td>
+        </tr>
+        <tr>
+          <td>inline-block</td>
+          <td>Ajusta el ancho según el contenido.</td>
+          <td>Llena todo el espacio disponible en el contenedor.</td>
+        </tr>
+        <tr>
+          <td>inline</td>
+          <td>No afecta el tamaño del elemento.</td>
+          <td>No afecta el tamaño del elemento.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Este ejemplo está disponible en <a target="_blank" href="https://codepen.io/isaac_e/pen/GRVrWBm">codepen</a>.</p>
+
+  </div>
+
+</body>
+
+</html>
