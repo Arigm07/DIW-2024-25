@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios columnas. Ej. 3</title>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="columnas.css">
+
+  <style>
+    .texto {
+      background-color: coral;
+    }
+
+    .div1 {
+      float: right;
+      padding: 50px;
+      background-color: pink;
+      margin-left: 50px;
+    }
+
+    .div2 {
+      float: left;
+      padding: 5px;
+      background-color: aqua;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="div1">Div1</div>
+      <div class="texto">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit ipsum possimus eius cum a hic excepturi molestias. Neque saepe fugit, placeat dolor autem porro voluptatibus numquam iste reprehenderit molestias ea.</div>
+      <div class="div2">Div2</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem corporis perferendis eos facilis, commodi assumenda et sequi eligendi iure? Officiis tempora labore id expedita asperiores aperiam sint doloribus facere qui</div>
+    </div>
+  </div>
+
+  <div class="explanation">
+    <p><strong>Explicación:</strong></p>
+
+    <p>No hay motivos para no escoger 12 columnas. Podrías pensar en meter en una columna el texto y el Div2, pero no es necesario y, además, te complicarías la vida con el <code>padding</code> que introducen las columnas.</p>
+    <p>El segundo texto podrías meterlo en un <code>row</code> o no. Sin embargo, si utilizas una distribución en filas lo lógico es mantener la coherencia de la página y no dejar elementos sueltos fuera de filas y columnas (salvo, quizá, <code>header</code> o <code>footer</code>).</p>
+  </div>
+
+</body>
+
+</html>
