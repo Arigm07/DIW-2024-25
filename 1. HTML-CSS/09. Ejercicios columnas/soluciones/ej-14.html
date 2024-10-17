@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios columnas. Ej. 14</title>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="ej-10.css">
+  <link rel="stylesheet" href="columnas.css">
+
+  <style>
+    /* Estilos para este ejercicio concreto */
+    .container {
+      width: 1024px;
+      margin: 0 auto;
+    }
+
+    .sidebar {
+      float: left;
+      width: 33.3333%;
+      height: 300px;
+    }
+
+    .main-content {
+      float: left;
+      width: 33.3333%;
+      height: 300px;
+    }
+
+    .sub-content {
+      float: left;
+      width: 33.3333%;
+      height: 300px;
+    }
+
+    .footer {
+      clear: left;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">header</div>
+
+  <div class="container">
+
+    <div class="row">
+      <div class="col-4 sidebar">
+        sidebar
+      </div>
+
+      <div class="col-4 main-content">
+        main content
+      </div>
+
+      <div class="col-4 sub-content">
+        sub content
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">footer</div>
+
+  <div class="explanation">
+    <p><strong>Explicación:</strong></p>
+    <p>Ya no tenemos que preocuparnos por dónde debemos colocar la clase <code>clearfix</code>, con <code>row</code> lo tenemos solucionado.</p>
+  </div>
+
+</body>
+
+</html>
