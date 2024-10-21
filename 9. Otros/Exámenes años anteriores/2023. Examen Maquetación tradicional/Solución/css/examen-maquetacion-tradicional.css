@@ -1,0 +1,77 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.row::after,
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+nav {
+  padding: 20px;
+}
+
+nav img.logo {
+  height: 30px;
+  vertical-align: middle;
+}
+
+nav a.comprar {
+  float: right;
+  border-radius: 3px;
+  border: 1px solid #333;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: black;
+  transition: background-color 1s, color 1s;
+}
+
+nav a.comprar:hover {
+  background-color: #333;
+  color: white;
+}
+
+/* El contenedor de la portada tiene que ser relative para que el texto, cuando sea absolute, se posicione con respecto a este contenedor, no al viewport */
+.portada-container {
+  position: relative;
+}
+
+.portada-container img {
+  width: 100%;
+}
+
+.portada-container .portada-texto h1 {
+  font-size: 26pt;
+}
+
+.portada-container .portada-texto h2 {
+  font-size: 12pt;
+  font-weight: 400;
+}
+
+.card {
+  padding: 5px 20px;
+  border-radius: 15px;
+}
+
+.bg-clr-lightblue {
+  background-color: lightblue;
+}
+
+.bg-clr-lightcoral {
+  background-color: lightcoral;
+}
+
+.bg-clr-lightcyan {
+  background-color: lightcyan;
+}
+
+.bg-clr-lightgoldenrodyellow {
+  background-color: lightgoldenrodyellow;
+}

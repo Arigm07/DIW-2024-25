@@ -1,0 +1,124 @@
+/* MOBILE FIRST */
+[class*="col-"] {
+  width: 100%;
+  float: left;
+  padding: 15px;
+}
+
+/* Para móviles, el texto de la portada va debajo de la imagen. Es decir, es estático. No hace falta ponerlo, pero para que quede claro. */
+.portada-container .portada-texto {
+  position: static;
+  padding: 0px 20px;
+}
+
+/* TABLETS: 600-900px */
+@media only screen and (min-width: 600px) {
+
+  .col-t-1 {
+    width: 8.33%;
+  }
+
+  .col-t-2 {
+    width: 16.66%;
+  }
+
+  .col-t-3 {
+    width: 25%;
+  }
+
+  .col-t-4 {
+    width: 33.33%;
+  }
+
+  .col-t-5 {
+    width: 41.66%;
+  }
+
+  .col-t-6 {
+    width: 50%;
+  }
+
+  .col-t-7 {
+    width: 58.33%;
+  }
+
+  .col-t-8 {
+    width: 66.66%;
+  }
+
+  .col-t-9 {
+    width: 75%;
+  }
+
+  .col-t-10 {
+    width: 83.33%;
+  }
+
+  .col-t-11 {
+    width: 91.66%;
+  }
+
+  .col-t-12 {
+    width: 100%;
+  }
+}
+
+/* ESCRITORIO: 900+px */
+@media only screen and (min-width: 900px) {
+
+  /* Para escritorio, el texto de la portada se muestra sobre la foto. */
+  .portada-container .portada-texto {
+    position: absolute;
+    top: 20px;
+    left: calc(2% + 2rem);
+    width: 35%;
+  }
+
+  .col-e-1 {
+    width: 8.33%;
+  }
+
+  .col-e-2 {
+    width: 16.66%;
+  }
+
+  .col-e-3 {
+    width: 25%;
+  }
+
+  .col-e-4 {
+    width: 33.33%;
+  }
+
+  .col-e-5 {
+    width: 41.66%;
+  }
+
+  .col-e-6 {
+    width: 50%;
+  }
+
+  .col-e-7 {
+    width: 58.33%;
+  }
+
+  .col-e-8 {
+    width: 66.66%;
+  }
+
+  .col-e-9 {
+    width: 75%;
+  }
+
+  .col-e-10 {
+    width: 83.33%;
+  }
+
+  .col-e-11 {
+    width: 91.66%;
+  }
+
+  .col-e-12 {
+    width: 100%;
+  }
+}
