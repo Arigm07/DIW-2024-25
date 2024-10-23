@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio Responsive Design (I). Solución</title>
+  <link rel="stylesheet" href="columnas.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      /* Truco para visualizar capas anidadas */
+      background: hsl(0 100% 50% / 0.1) !important;
+    }
+
+    header {
+      background-color: lightpink;
+      padding: 20px;
+    }
+
+    aside {
+      background-color: lightblue;
+      padding: 20px;
+    }
+
+    article {
+      background-color: lightgreen;
+      padding: 20px;
+    }
+
+    footer {
+      background-color: darkgray;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>HEADER</header>
+
+  <div class="row">
+
+    <div class="col-t-3 col-d-2">
+      <aside>ASIDE</aside>
+    </div>
+
+    <div class="col-t-9 col-d-10">
+
+      <div class="row">
+        <div class="col-t-6 col-d-4">
+          <article>ARTICLE</article>
+        </div>
+
+        <div class="col-t-6 col-d-4">
+          <article>ARTICLE</article>
+        </div>
+
+        <div class="col-t-12 col-d-4">
+          <article>ARTICLE</article>
+        </div>
+
+        <div class="col-t-12 col-d-6">
+          <article>ARTICLE</article>
+        </div>
+
+        <div class="col-t-12 col-d-6">
+          <article>ARTICLE</article>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>FOOTER</footer>
+
+</body>
+
+</html>
