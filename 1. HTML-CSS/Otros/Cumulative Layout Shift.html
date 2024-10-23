@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cumulative Layout Shift (CLS)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1024px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cls-example {
+      width: 100%;
+      border: 2px solid #3498db;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+      min-height: 100px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      text-decoration: none;
+      margin-top: 10px;
+    }
+
+    img {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Cumulative Layout Shift (CLS)</h1>
+    <div class="content">
+      <p>El <strong>Cumulative Layout Shift (CLS)</strong> es una métrica de rendimiento web que <u>mide la estabilidad visual de una página</u>. Si el contenido de una página se mueve inesperadamente mientras el usuario interactúa con ella, genera una mala experiencia de usuario.</p>
+      <p>Por ejemplo, si un botón cambia de posición debido a que una imagen o un anuncio tarda en cargar, el usuario podría hacer clic en un lugar no deseado.</p>
+    </div>
+
+    <div class="cls-example">
+      <img src="https://picsum.photos/seed/random/1920/1080" alt="Imagen de prueba">
+      <a href="#" class="btn">Haga clic aquí</a>
+    </div>
+
+    <p>En el ejemplo anterior, el botón se mueve cuando la imagen tarda en cargarse, lo que causa un <em>layout shift</em>. Para evitar esto, debemos reservar espacio para las imágenes u otros elementos de carga lenta usando propiedades como <code>width</code>, <code>height</code> o, si conocemos la relación de aspecto de la imagen, <code>aspect-ratio</code>.</p>
+
+    <p>Para comprobar este efecto, puedes usar las DevTools del navegador y simular una conexión lenta en la página modificando la opción <i>throttling</i> en la pestaña <i>Network</i>.</p>
+  </div>
+</body>
+
+</html>
