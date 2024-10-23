@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atomic CSS</title>
+  <link rel="stylesheet" href="../../Utils/css/general.css">
+
+  <!-- Tema CSS para highlight.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/night-owl.min.css" integrity="sha512-i5X6Fdn/ZqvGSqPrdMa3FgcpXM/Nr6YccSKFYT93zljl/HZDEpvBbE5Pxp91eiWGccZLrL/LDQJd7fjTRYsVaA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1024px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Ejemplo de Atomic CSS */
+    .d-flex {
+      display: flex;
+    }
+
+    .justify-center {
+      justify-content: center;
+    }
+
+    .align-center {
+      align-items: center;
+    }
+
+    .p-10 {
+      padding: 10px;
+    }
+
+    .m-20 {
+      margin: 20px;
+    }
+
+    .bg-light {
+      background-color: #f9f9f9;
+    }
+
+    .border {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>¿Qué es Atomic CSS?</h1>
+    <p><strong>Atomic CSS</strong>, también conocido como <strong>Utility-First CSS</strong>, es una técnica que consiste en crear clases que aplican una única propiedad CSS. Estas clases se reutilizan para componer el diseño de una página. Uno de los framework CSS más conocidos que usan esta técnica es <strong>Tailwind CSS</strong>.</p>
+
+    <p>Por ejemplo, con Atomic CSS, en lugar de crear una clase específica para un componente, se utilizan clases más generales que describen una propiedad CSS. Por ejemplo, para aplicar <code>display: flex</code> a un elemento, usarías la clase <code>d-flex</code>:</p>
+
+    <pre><code class="language-css">.d-flex {
+  display: flex;
+}</code></pre>
+
+    <p>Luego, puedes combinarlas:</p>
+    <div class="d-flex justify-center align-center p-10 m-20 bg-light border">
+      <p>Este es un ejemplo usando Atomic CSS.</p>
+    </div>
+    <pre><code class="language-html">&lt;div class=&quot;d-flex justify-center align-center p-10 m-20 bg-light border&quot;&gt;
+  &lt;p&gt;Este es un ejemplo usando Atomic CSS.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+  </div>
+
+  <!-- highlight.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js" integrity="sha512-6yoqbrcLAHDWAdQmiRlHG4+m0g/CT/V9AGyxabG8j7Jk8j3r3K6due7oqpiRMZqcYe9WM2gPcaNNxnl2ux+3tA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>hljs.highlightAll();</script>
+
+  <!-- Función para copiar el contenido del pre tag -->
+  <script src="../../Utils/js/copy-button-pre-tag.js"></script>
+</body>
+
+</html>
