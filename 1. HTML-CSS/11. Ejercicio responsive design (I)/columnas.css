@@ -63,7 +63,7 @@
 }
 
 /* For desktop: */
-@media only screen and (min-width: 900px) {
+@media (min-width: 900px) {
   .col-d-1 {
     width: 8.33%;
   }
