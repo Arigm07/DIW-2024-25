@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidades em y rem en CSS</title>
+  <link rel="stylesheet" href="../../Utils/css/general.css">
+
+  <!-- Tema CSS para highlight.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/night-owl.min.css" integrity="sha512-i5X6Fdn/ZqvGSqPrdMa3FgcpXM/Nr6YccSKFYT93zljl/HZDEpvBbE5Pxp91eiWGccZLrL/LDQJd7fjTRYsVaA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1024px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .info {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .example {
+      padding: 10px;
+      margin: 10px 0;
+      background-color: #e1f5fe;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0 0 0 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Unidades em y rem en CSS</h1>
+
+    <p><strong>em</strong> y <strong>rem</strong> son unidades de medida relativas en CSS que se utilizan para definir tamaños de fuente y otros elementos. Su uso favorece la accesibilidad y la adaptabilidad de los diseños.</p>
+
+    <h2>¿Qué son?</h2>
+    <ul>
+      <li><strong>em:</strong> Es relativa al tamaño de la fuente del elemento padre. Por ejemplo, si un elemento tiene un tamaño de fuente de 16px y se establece un margen de 2em, el margen será de 32px (2 x 16px).</li>
+      <li><strong>rem:</strong> Es relativa al tamaño de la fuente de la raíz del documento (el elemento <code>&lt;html&gt;</code>). Si el tamaño de fuente de <code>&lt;html&gt;</code> es 16px, entonces 1rem siempre será 16px, independientemente de la jerarquía del elemento. Para definir márgenes, paddings y otros espaciados que deberían ser consistentes en toda la aplicación, <code>rem</code> es más adecuado porque es independiente del contexto del elemento padre.</li>
+    </ul>
+
+    <h2>Ventajas</h2>
+    <ul>
+      <li><strong>em:</strong> Permite crear diseños que se adaptan al tamaño de fuente de su contexto, lo cual es útil en componentes reutilizables.</li>
+      <li><strong>rem:</strong> Ofrece una mayor consistencia en el diseño ya que todos los elementos se basan en un solo valor de referencia, lo que facilita el mantenimiento del tamaño de fuente en toda la aplicación.</li>
+    </ul>
+
+    <h2>Ejemplo</h2>
+    <div class="example">
+      <p>Lista usando <strong>em</strong> y <strong>rem</strong> para mostrar diferencias:</p>
+      <ul style="font-size: 1.5em;"> <!-- Ejemplo con em -->
+        <li>Elemento 1 (1.5em)
+          <ul style="font-size: 1.2em;"> <!-- Anidado con em -->
+            <li>Subelemento 1.1 (1.2em)</li>
+            <li>Subelemento 1.2 (1.2em)</li>
+          </ul>
+        </li>
+        <li style="font-size: 1rem;">Elemento 2 (1rem)
+          <ul style="font-size: 1rem;"> <!-- Anidado con rem -->
+            <li>Subelemento 2.1 (1rem)</li>
+            <li>Subelemento 2.2 (1rem)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <p class="info">En este ejemplo, si el tamaño de fuente del elemento padre es 16px, el texto del Elemento 1 será de 24px (1.5em) y sus subelementos tendrán un tamaño de 19.2px (1.2em). El Elemento 2 será de 16px (1rem) y sus subelementos también serán de 16px (1rem).</p>
+
+  </div>
+
+</body>
+
+</html>

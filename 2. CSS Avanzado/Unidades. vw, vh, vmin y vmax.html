@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidades de Viewport en CSS</title>
+  <link rel="stylesheet" href="../../Utils/css/general.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1024px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .viewport-info,
+    .example-info {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .vw-example,
+    .vh-example,
+    .vmin-example,
+    .vmax-example {
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .vw-example {
+      width: 50vw;
+      background-color: #e0f7fa;
+    }
+
+    .vh-example {
+      height: 30vh;
+      background-color: #ffecb3;
+    }
+
+    .vmin-example {
+      width: 40vmin;
+      height: 40vmin;
+      background-color: #d1c4e9;
+    }
+
+    .vmax-example {
+      width: 40vmax;
+      height: 40vmax;
+      background-color: #c8e6c9;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Unidades de Viewport en CSS</h1>
+
+    <p>Las unidades de viewport (<code>vw</code>, <code>vh</code>, <code>vmin</code>, <code>vmax</code>) son útiles para crear diseños responsivos basados en el tamaño del viewport:</p>
+    <p><strong>1vw</strong> = 1% del ancho del viewport. <strong>1vh</strong> = 1% de la altura del viewport.</p>
+    <p><strong>vmin</strong> = 1% de la menor dimensión del viewport. <strong>vmax</strong> = 1% de la mayor dimensión del viewport.</p>
+
+    <p><strong>Usos:</strong></p>
+
+    <ul>
+      <li><strong>vw:</strong> Utilizado para diseñar elementos que deben adaptarse al ancho completo de la pantalla, como títulos o imágenes de fondo que escalan horizontalmente.</li>
+      <li><strong>vh:</strong> Común para ajustar elementos a la altura visible de la pantalla, ideal para secciones de pantalla completa o contenedores que ocupan el 100% de la altura. En algunos navegadores móviles, la aparición del teclado puede afectar el tamaño del viewport. Esto puede hacer que los elementos definidos en vh no se ajusten como se esperaba, ya que la altura del viewport puede cambiar temporalmente al abrir el teclado.</li>
+      <li><strong>vmin:</strong> Mantiene proporciones cuadradas sin importar la orientación, útil para iconos o gráficos que deben ajustarse simétricamente.</li>
+      <li><strong>vmax:</strong> Maximiza el tamaño de elementos y aprovecha la mayor dimensión del viewport, ideal para fondos a pantalla completa o elementos decorativos.</li>
+    </ul>
+
+    <div class="viewport-info" id="viewport-dimensions"></div>
+
+    <div class="vw-example">
+      <p>Ejemplo de ancho al 50vw (50% del ancho del viewport).</p>
+      <div class="example-info" id="vw-dimension"></div>
+    </div>
+
+    <div class="vh-example">
+      <p>Ejemplo de alto al 30vh (30% de la altura del viewport).</p>
+      <div class="example-info" id="vh-dimension"></div>
+    </div>
+
+    <div class="vmin-example">
+      <p>Ejemplo de tamaño al 40vmin (40% de la menor dimensión del viewport).</p>
+      <div class="example-info" id="vmin-dimension"></div>
+    </div>
+
+    <div class="vmax-example">
+      <p>Ejemplo de tamaño al 40vmax (40% de la mayor dimensión del viewport).</p>
+      <div class="example-info" id="vmax-dimension"></div>
+    </div>
+
+  </div>
+
+  <script>
+    function updateViewportDimensions() {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const vmin = Math.min(vw, vh);
+      const vmax = Math.max(vw, vh);
+
+      document.getElementById('viewport-dimensions').innerText = `Viewport Width: ${vw}px, Viewport Height: ${vh}px`;
+
+      document.getElementById('vw-dimension').innerText = `Actual Width (50vw): ${(vw * 0.5).toFixed(1)}px`;
+      document.getElementById('vh-dimension').innerText = `Actual Height (30vh): ${(vh * 0.3).toFixed(1)}px`;
+      document.getElementById('vmin-dimension').innerText = `Width & Height (40vmin): ${(vmin * 0.4).toFixed(1)}px`;
+      document.getElementById('vmax-dimension').innerText = `Width & Height (40vmax): ${(vmax * 0.4).toFixed(1)}px`;
+    }
+
+    window.addEventListener('resize', updateViewportDimensions);
+    window.addEventListener('load', updateViewportDimensions);
+  </script>
+
+</body>
+
+</html>
