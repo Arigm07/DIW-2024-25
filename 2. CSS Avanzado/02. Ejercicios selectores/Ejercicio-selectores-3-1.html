@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio selectores 3.1.</title>
+  <style>
+    #main-section>:is(.main, .header) {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="main-section">
+    <div class="header">Soy un header</div>
+    <div class="main">Soy un main</div>
+    <div class="footer">
+      Soy un footer
+      <div class="main">Soy un main dentro de un footer</div>
+    </div>
+  </div>
+</body>
+
+</html>

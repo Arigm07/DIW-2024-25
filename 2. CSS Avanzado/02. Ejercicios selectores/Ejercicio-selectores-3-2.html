@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio selectores 3.2.</title>
+  <style>
+    .active~:is(.highlight, .selected) {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="highlight">
+    <p>Este es un elemento highlight</p>
+  </div>
+  <div class="not-active">
+    <p>Este es un elemento not-active</p>
+  </div>
+  <div class="active">
+    <p>Este es un elemento active</p>
+  </div>
+  <div class="highlight">
+    <p>Este es un elemento highlight</p>
+  </div>
+  <div class="not-active">
+    <p>Este es un elemento not-active</p>
+  </div>
+  <div class="selected">
+    <p>Este es un elemento selected</p>
+  </div>
+</body>
+
+</html>

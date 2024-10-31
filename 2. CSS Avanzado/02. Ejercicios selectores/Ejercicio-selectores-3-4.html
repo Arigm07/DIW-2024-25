@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio selectores 3.4.</title>
+  <style>
+    section:has(a[href$=".pdf" i]) {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <a href="calendario.pdf">Calendario PDF</a>
+    <a href="notas.txt">Notas TXT</a>
+  </section>
+  <section>
+    <a href="peliculas.xls">Películas XLS</a>
+    <a href="cumple.PDF">Cumpleaños PDF</a>
+  </section>
+  <section>
+  </section>
+  <section>
+    <a href="peliculas.xls">Películas XLS</a>
+  </section>
+</body>
+
+</html>

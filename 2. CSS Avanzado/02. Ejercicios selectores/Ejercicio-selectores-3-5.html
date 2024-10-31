@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio selectores 3.5.</title>
+  <style>
+    .main:has([href]) {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main">
+    <p>Contenido principal</p>
+    <a href="https://www.example.com">Link 1</a>
+  </div>
+  <div class="main">
+    <p>Contenido principal</p>
+  </div>
+</body>
+
+</html>
