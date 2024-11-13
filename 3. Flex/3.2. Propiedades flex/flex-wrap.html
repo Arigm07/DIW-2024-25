@@ -61,6 +61,12 @@
       <div id="explicacion">
         <p>Con <code>flex-wrap</code> especificamos el comportamiento del contenedor en caso de desbordamiento. Cuando el valor de esta propiedad es <code>wrap</code> o <code>wrap-reverse</code>, si alguno de los hijos no cabe en el contenedor baja una línea, convirtiéndose así el contenedor en multilínea.</p>
 
+        <p>Hay que tener cuidado con esto porque el comportamiento depende de otras propiedades y situaciones:</p>
+        <ul>
+          <li>Si los items tienen una anchura fija (75px en este ejemplo) y el contenedor se estrecha, entonces los ítems se estrecharán también hasta que su contenido lo permita (esto ocurre por el valor por defecto de otra propiedad, <code>flex-shrink</code>).</li>
+          <li>Si los items no tienen una anchura fija y esta depende de su contenido, entonces los ítems no se estrecharán con el contenedor. Puedes probar este comportamiento quitando <code>width: 75px</code> de la clade <code>.item</code> y poniendo <code>padding: 1em</code>.</li>
+        </ul>
+
         <p class="mb-0">Documentación:</p>
         <ul>
           <li><a href="https://www.w3.org/TR/css-flexbox-1/#flex-wrap-property" target="_blank" rel="noopener noreferrer">www.w3.org</a></li>

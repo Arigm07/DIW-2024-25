@@ -12,7 +12,7 @@
 
   <style>
     #contenedor-flex {
-      height: 250px;
+      height: 300px;
       width: 400px;
     }
 
@@ -37,10 +37,10 @@
       <h2>align-items</h2>
 
       <div id="options">
-        <div class="option default">flex-start</div>
+        <div class="option">flex-start</div>
         <div class="option">flex-end</div>
         <div class="option">center</div>
-        <div class="option">stretch</div>
+        <div class="option default">stretch</div>
         <div class="option">baseline</div>
 
         <div class="break"></div>
@@ -56,7 +56,7 @@
       <div id="contenedor-flex" class="mb-3">
         <div class="item">Texto</div>
         <div class="item">Más texto</div>
-        <div class="item">Un texto mucho más largo que ocupa más espacio</div>
+        <div class="item">Un texto mucho más largo con <code>padding-top: 40px</code> para probar el valor <code>baseline</code></div>
       </div>
 
       <p>La propiedad <code>align-items</code> sirve para alinear los ítems a lo largo del eje secundario.</p>
