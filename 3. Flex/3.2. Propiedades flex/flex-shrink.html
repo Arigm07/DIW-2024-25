@@ -13,7 +13,7 @@
   <style>
     #contenedor-flex {
       padding: 20px 0px;
-      width: 700px;
+      width: 660px;
     }
 
     #contenedor-flex .item {
@@ -44,8 +44,8 @@
 
         <div class="no-effect">
           <label for="anchura-contenedor">Anchura contenedor: </label>
-          <div id="anchura-contenedor-value" class="range-indicator">700</div>
-          <input type="range" id="anchura-contenedor" name="anchura-contenedor" min="200" max="700" step="50" value="700">
+          <div id="anchura-contenedor-value" class="range-indicator">660</div>
+          <input type="range" id="anchura-contenedor" name="anchura-contenedor" min="120" max="660" step="60" value="660">
         </div>
 
         <div class="break"></div>
@@ -81,7 +81,7 @@
 
         <li><b>Situación 4.</b> Misma situación que la anterior. Observa que no cambia nada el hecho de que el valor de <code>flex-shrink</code> haya pasado de 1 a 2, dado que ninguno de sus hermano se encoge.</li>
 
-        <li><b>Situación 5.</b> Sólo se encojen los ítems 1 y 3. Como originalmente todos los ítems son iguales, el factor de contracción del ítem 3 será 3 veces mayor que el del ítem 1. Por tanto, por cada 100px de reducción de espacio, el ítem 3 se contraerá 75px y el ítem 1 25px.</li>
+        <li><b>Situación 5.</b> Sólo se encojen los ítems 1 y 3. Como originalmente todos los ítems son iguales, el factor de contracción del ítem 3 será 3 veces mayor que el del ítem 1. Por tanto, por cada 60px de reducción de espacio, el ítem 3 se contraerá 45px y el ítem 1 sólo 15px.</li>
       </ul>
 
       <ul class="ul-situaciones ul-items-distintos d-none">
@@ -93,7 +93,7 @@
 
         <li><b>Situación 4.</b> Misma situación que la anterior. Observa que no cambia nada el hecho de que el valor de <code>flex-shrink</code> haya pasado de 1 a 2, dado que ninguno de sus hermano se encoge.</li>
 
-        <li><b>Situación 5.</b> Sólo se encojen los ítems 1 y 3. Como originalmente el ítem 3 es el triple de grande que el ítem 1, su factor de contracción es de 3. Pero, además, tiene el triple de valor de <code>flex-shrink</code>. Por tanto, su factor de contracción será 3*3=9 veces mayor que el del ítem 1. O, lo que es lo mismo, por cada 50px de reducción de espacio, el ítem 3 se encogerá 45px y el ítem 1 lo hará sólo 5px.</li>
+        <li><b>Situación 5.</b> Sólo se encojen los ítems 1 y 3. Como originalmente el ítem 3 es el triple de grande que el ítem 1, su factor de contracción es de 3. Pero, además, tiene el triple de valor de <code>flex-shrink</code>. Por tanto, su factor de contracción será 3*3=9 veces mayor que el del ítem 1. O, lo que es lo mismo, por cada 60px de reducción de espacio, el ítem 3 se encogerá 55px y el ítem 1 lo hará sólo 5px.</li>
       </ul>
 
       <p class="mb-0">Documentación:</p>
@@ -149,20 +149,20 @@
       });
 
       // Click en los radiobuttons para seleccionar tamaños de los ítems
-      $("input[name=rb-items]").change(function (e) {
+      $("input[name=rb-items]").on('change', function () {
         if ($("#rb-items-iguales").prop("checked")) {
           $("#contenedor-flex > .item").css("width", "200px");
 
-          $(".ul-items-distintos").removeClass("d-none");
-          $(".ul-items-iguales").addClass("d-none");
+          $(".ul-items-distintos").addClass("d-none");
+          $(".ul-items-iguales").removeClass("d-none");
         }
         else {
           $("#contenedor-flex > .item:nth-child(1)").css("width", "100px");
           $("#contenedor-flex > .item:nth-child(2)").css("width", "200px");
           $("#contenedor-flex > .item:nth-child(3)").css("width", "300px");
 
-          $(".ul-items-distintos").addClass("d-none");
-          $(".ul-items-iguales").removeClass("d-none");
+          $(".ul-items-distintos").removeClass("d-none");
+          $(".ul-items-iguales").addClass("d-none");
         }
         showSizes();
       });
@@ -170,6 +170,15 @@
       // Simulamos clic en el primer elemento
       $("#options>.default").click();
     });
+
+    function showSizes() {
+      $(".item").each(function () {
+        $(this)
+          .find(".width-indicator")
+          .text($(this).width().toFixed(1) + "px");
+      });
+    }
+
   </script>
 
 </body>
