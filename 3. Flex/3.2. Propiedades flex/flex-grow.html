@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
-  <title>flex-grow</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex-grow</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -18,7 +19,18 @@
 
     #contenedor-flex .item {
       position: relative;
+    }
+
+    #contenedor-flex .item:nth-child(1) {
+      width: 100px;
+    }
+
+    #contenedor-flex .item:nth-child(2) {
       width: 200px;
+    }
+
+    #contenedor-flex .item:nth-child(3) {
+      width: 300px;
     }
   </style>
 </head>
@@ -55,15 +67,15 @@
 
       <ul class="ul-situaciones">
 
-        <li><b>Situación 1.</b> Todos los elementos tienen <code>flex-grow: 0</code>. El contenedor ocupa 700px de ancho y cada ítem ocupa 200px. Eso deja un espacio libre de 100px. Como todos los ítems tienen el valor por defecto, 0, ninguno se estira y el espacio libre queda sin asignar.</li>
+        <li><b>Situación 1.</b> Todos los elementos tienen <code>flex-grow: 0</code>. El contenedor ocupa 700px de ancho, lo que deja un espacio libre de 100px. Como todos los ítems tienen el valor por defecto, 0, ninguno se estira y el espacio libre queda sin asignar.</li>
 
         <li><b>Situación 2.</b> Todos los elementos tienen <code>flex-grow: 1</code>. Los 100px de espacio libre se reparten a partes iguales entre los 3 ítems.</li>
 
-        <li><b>Situación 3.</b> Todos los elementos tienen <code>flex-grow: 1</code> menos el segundo, que tiene <code>flex-grow: 1</code>. Todo el espacio disponible se asigna al ítem 2.</li>
+        <li><b>Situación 3.</b> Todos los elementos tienen <code>flex-grow: 0</code> menos el segundo, que tiene <code>flex-grow: 1</code>. Todo el espacio disponible se asigna al ítem 2.</li>
 
-        <li><b>Situación 4.</b> Todos los elementos tienen <code>flex-grow: 1</code> menos el segundo, que tiene <code>flex-grow: 2</code>. Igual que la situación anterior, todo el espacio disponible se asigna al ítem 2, por lo que pasa a ocupar 50+150=200px.</li>
+        <li><b>Situación 4.</b> Todos los elementos tienen <code>flex-grow: 0</code> menos el segundo, que tiene <code>flex-grow: 2</code>. Igual que la situación anterior, todo el espacio disponible se asigna al ítem 2.</li>
 
-        <li><b>Situación 5.</b> El ítem 1 tiene <code>flex-grow: 1</code> y el ítem 2 tiene <code>flex-grow: 2</code>. Se reparten los 100px entre ellos dos, pero al segundo ítem le corresponde el doble de espacio que al primero.</li>
+        <li><b>Situación 5.</b> El ítem 1 tiene <code>flex-grow: 1</code>, el ítem 2 tiene <code>flex-grow: 2</code> y el ítem 3 tiene <code>flex-grow: 0</code>. Se reparten los 100px entre los dos primeros, pero al segundo ítem le corresponde el doble de espacio que al primero.</li>
 
         <li><b>Situación 5.</b> Misma situación que la anterior, pero ahora el ítem 3 tiene <code>flex-grow: 1</code>. A los ítems 1 y 3 se les asigna un 25% del espacio restante (1/4), mientras que al ítem 2 se le asigna el 50% (2/4).</li>
 
