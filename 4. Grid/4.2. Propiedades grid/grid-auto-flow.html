@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>grid-auto-flow</title>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-size: large;
+    }
+
+    h2 {
+      text-align: center;
+      font-family: 'Consolas', 'Lucida Console', 'Courier New', Courier, monospace;
+      padding: 10px;
+      margin: 0px 0px 10px 0px;
+      font-size: larger;
+    }
+
+    #options {
+      display: flex;
+    }
+
+    #options>* {
+      margin: 0px 10px 20px 0px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      padding: 5px 10px;
+      background-color: #ccc;
+    }
+
+    #options>*.active,
+    #options>*:hover {
+      background-color: #333;
+      color: white;
+    }
+
+    #contenedor-grid {
+      background-color: #ccc;
+      padding: 20px;
+      width: 500px;
+      display: grid;
+      grid-template-columns: auto auto auto;
+      grid-template-rows: auto auto;
+    }
+
+    .item {
+      background-color: #777;
+      border: 1px solid black;
+      padding: 20px;
+    }
+
+    .ul-situaciones>li {
+      padding: 5px;
+      margin: 0;
+    }
+
+    .highlight {
+      background-color: rgb(172, 255, 172);
+    }
+
+    code {
+      background-color: lightgrey;
+      padding: 2px 5px;
+      font-family: 'Consolas', 'Lucida Console', 'Courier New', Courier, monospace;
+      font-size: medium;
+    }
+
+    p,
+    li {
+      line-height: 1.5;
+    }
+
+    label,
+    input[type="checkbox"] {
+      cursor: pointer;
+    }
+
+    small {
+      font-size: initial;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>grid-auto-flow</h2>
+  <div id="options">
+    <div>row</div>
+    <div>column</div>
+    <div>dense</div>
+    <div>row dense</div>
+    <div>column dense</div>
+  </div>
+
+  <div style="margin-bottom: 20px">
+    <input type="checkbox" id="cb-grid-column" name="cb-grid-column">
+    <label for="cb-grid-column">Activar para el ítem 3 <code>grid-column: auto / span 2</code></label>
+  </div>
+
+  <div id="contenedor-grid">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+  </div>
+  <small>Grid de 2 filas y 3 columnas.</small>
+
+  <p>La propiedad <code>grid-auto-flow</code> determina cómo se colocan los ítems en un grid cuando no se ha especificado explícitamente dónde debe colocarse cada uno.</p>
+  <p>Prueba a activar el checkbox para ver cómo se comporta esta propiedad cuando el ítem 3 ocupa 2 columnas.</p>
+
+  <ul class="ul-situaciones">
+    <li><code>row</code> sitúa los ítems en filas consecutivas. Por defecto. Primero se rellena la fila 1, luego la 2, etc. Al hacer que el ítem 3 ocupe 2 columnas ya no cabe en la primera fila, por lo que pasa a la segunda.</li>
+    <li><code>column</code> sitúa los ítems en columnas consecutivas. Primero se rellena la columna 1, luego la 2, etc. Al hacer que el ítem 3 ocupe 2 columnas no ocurre nada porque la columna dos sigue estando ocupada completamente.</li>
+    <li><code>dense</code> sitúa los ítems de forma que se rellenen los huecos. Se puede apreciar que al hacer que el ítem 3 ocupe 2 columnas se genera un hueco en la fila 1 columna 1. Ese hueco se rellena con el ítem 4.</li>
+    <li><code>row dense</code> sitúa los ítems para rellenar primero las filas. Misma situación que con el valor <code>dense</code>.</li>
+    <li><code>column dense</code> sitúa los ítems para rellenar primero las columnas. No se aprecia diferencia entre los valores <code>column</code> y <code>column dense</code> porque en este caso las columnas ya están rellenas.</li>
+  </ul>
+
+  <script>
+    $(document).ready(function () {
+      $("#options>*").click(function () {
+        $("#contenedor-grid").css("grid-auto-flow", $(this).html());
+
+        // Quitamos la clase active a todos los items y se lo ponemos al que se ha hecho clic
+        $("#options>*").each(function () {
+          $(this).removeClass("active");
+        });
+        $(this).addClass("active");
+
+        // Eliminamos la clase highlight a todos los li y se la ponemos al que corresponda
+        $(".ul-situaciones>li").each(function () {
+          $(this).removeClass("highlight");
+        });
+        $(".ul-situaciones>li:nth-child(" + ($(this).index() + 1) + ")").addClass("highlight");
+      });
+
+      // Simulamos clic en el primer elemento
+      $("#options>*:nth-child(1)").click();
+
+      // Clic sobre el checkbox
+      $('#cb-grid-column').change(function () {
+        if ($(this).is(':checked')) {
+          $("#contenedor-grid>*:nth-child(3)").css("grid-column", "auto / span 2");
+        }
+        else {
+          $("#contenedor-grid>*:nth-child(3)").css("grid-column", "auto / auto");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
