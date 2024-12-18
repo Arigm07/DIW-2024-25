@@ -5,9 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>fit-content()</title>
+  <link rel="stylesheet" href="../../Utils/css/general.css">
   <style>
+    :root {
+      --bg-clr-option: #ccc;
+      --bg-clr-option-hover: #fff;
+      --bg-color-container: #f2f2f2;
+      --bg-color-container-flex: #fefddc;
+    }
+
     body {
+      background-color: var(--bg-color-container);
       font-size: 1.125rem;
+    }
+
+    #container {
+      background-color: #fff;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      border: 1px solid #333;
     }
 
     .contenedor-grid {
@@ -47,45 +64,51 @@
 </head>
 
 <body>
-  <h1>fit-content</h1>
+  <div id="container">
 
-  <p>En todos los casos tenemos <code>grid-template-columns: 75px fit-content(100px);</code></p>
+    <h1><code>fit-content</code></h1>
 
-  <p><b>Caso 1: </b>La segunda columna se ajusta al contenido porque éste es menor de 100px.</p>
+    <p>En todos los casos tenemos <code>grid-template-columns: 75px fit-content(100px)</code>. Fíjate lo que ocurre con la segunda columna:</p>
 
-  <div class="contenedor-grid">
-    <div class="item">Uno</div>
-    <div class="item">Dos</div>
-    <div class="item">Tres</div>
-    <div class="item">Cuatro</div>
+    <p><b>Caso 1: </b>Se ajusta al contenido porque éste es menor de 100px.</p>
+
+    <div class="contenedor-grid">
+      <div class="item">Uno</div>
+      <div class="item">Dos</div>
+      <div class="item">Tres</div>
+      <div class="item">Cuatro</div>
+    </div>
+
+    <p><b>Caso 2: </b>Ocupa exactamente 100px porque su contenido es mayor de 100px pero no se produce desbordamiento si reducimos la anchura a 100px.</p>
+    <p>El contenedor ocupa más espacio del imprescindible a pesar de ser <code>inline-grid</code> porque da espacio a la segunda columna como si esta ocupase el espacio necesario. Observa que la anchura del contenedor no cambia si cambias <code>fit-content(100px)</code> por <code>1fr</code>.</p>
+
+    <div class="contenedor-grid">
+      <div class="item">Uno</div>
+      <div class="item">Dos</div>
+      <div class="item">Tres</div>
+      <div class="item">Cuatro Cuatro Cuatro Cuatro</div>
+    </div>
+
+    <p><b>Caso 3: </b>Ocupa más de 100px porque su contenido es mayor de 100px pero no podemos evitar el desbordamiento con 100px de anchura.</p>
+
+    <div class="contenedor-grid">
+      <div class="item">Uno</div>
+      <div class="item">Dos</div>
+      <div class="item">Tres</div>
+      <div class="item">Supercalifragilísticoespialidoso</div>
+    </div>
+
+    <p><b>Caso 4: </b>Evitamos el overflow del caso anterior poniendo al item en cuestión <code>word-break: break-word</code>, que está <i>deprecated</i> en favor de <code>overflow-wrap: anywhere</code>.</p>
+
+    <div class="contenedor-grid">
+      <div class="item">Uno</div>
+      <div class="item">Dos</div>
+      <div class="item">Tres</div>
+      <div class="item" style="overflow-wrap: anywhere">Supercalifragilísticoespialidoso</div>
+    </div>
+
   </div>
 
-  <p><b>Caso 2: </b>La segunda columna ocupa exactamente 100px porque su contenido es mayor de 100px.</p>
-
-  <div class="contenedor-grid">
-    <div class="item">Uno</div>
-    <div class="item">Dos</div>
-    <div class="item">Tres</div>
-    <div class="item">Cuatro Cuatro Cuatro Cuatro</div>
-  </div>
-
-  <p><b>Caso 3: </b>La segunda columna ocupa más de 100px para evitar overflow.</p>
-
-  <div class="contenedor-grid">
-    <div class="item">Uno</div>
-    <div class="item">Dos</div>
-    <div class="item">Tres</div>
-    <div class="item">Supercalifragilísticoespialidoso</div>
-  </div>
-
-  <p><b>Caso 4: </b>Evitamos el overflow del caso anterior poniendo al item en cuestión <code>word-break: break-word</code>, que está <i>deprecated</i> en favor de <code>overflow-wrap: anywhere</code>.</p>
-
-  <div class="contenedor-grid">
-    <div class="item">Uno</div>
-    <div class="item">Dos</div>
-    <div class="item">Tres</div>
-    <div class="item" style="overflow-wrap: anywhere">Supercalifragilísticoespialidoso</div>
-  </div>
 </body>
 
 </html>
