@@ -2,8 +2,9 @@
 <html>
 
 <head>
-  <title>GRID. Propiedades de alineación (II)</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GRID. Propiedades de alineación (II)</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <style>
     * {
@@ -22,13 +23,16 @@
       font-family: 'Consolas', 'Lucida Console', 'Courier New', Courier, monospace;
       display: inline-grid;
       grid-template-rows: repeat(4, auto);
-      grid-template-columns: repeat(8, auto);
+      grid-template-columns: max-content repeat(7, auto);
       gap: 10px;
     }
 
     #options .propiedad {
       padding: 5px 10px;
       font-weight: bold;
+      display: flex;
+      align-items: center;
+      column-gap: 5px;
     }
 
     #options .valor {
@@ -37,6 +41,8 @@
       cursor: pointer;
       padding: 5px 10px;
       background-color: #ccc;
+      display: flex;
+      align-items: center;
     }
 
     #options .valor.active,
