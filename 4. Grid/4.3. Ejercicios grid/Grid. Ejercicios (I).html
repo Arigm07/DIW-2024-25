@@ -20,7 +20,8 @@
     }
 
     #grid-container {
-      display: none;
+      display: grid;
+      visibility: hidden;
       background-color: lightgray;
       padding: 10px;
     }
@@ -130,6 +131,10 @@
       grid-template-columns: 100px minmax(min-content, max-content);
     }
 
+    .ej21 {
+      grid-template-columns: auto min-content 1fr;
+    }
+
     #styles-display {
       /* background-color: #1e1e1e; */
       color: #d4d4d4;
@@ -190,11 +195,11 @@
 
   <div id="radio-container"></div>
 
-  <div id="styles-display"></div>
+  <div id="styles-display"></div><a href="#" id="show-link">Mostrar Grid Container</a>
 
   <div id="grid-container" class="ej3">
-    <div class="item">1</div>
-    <div class="item">2</div>
+    <div class="item">111111111111 111111111111</div>
+    <div class="item">111111111111 111111111111</div>
     <div class="item">3</div>
     <div class="item">4</div>
     <div class="item">5</div>
@@ -213,8 +218,6 @@
     <div class="item">18</div>
   </div>
 
-  <a href="#" id="show-link">Mostrar Grid Container</a>
-
   <!-- highlight.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js" integrity="sha512-6yoqbrcLAHDWAdQmiRlHG4+m0g/CT/V9AGyxabG8j7Jk8j3r3K6due7oqpiRMZqcYe9WM2gPcaNNxnl2ux+3tA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
@@ -226,7 +229,7 @@
       const showLink = document.getElementById("show-link");
 
       // Generar radio buttons dinámicamente
-      for (let i = 1; i <= 20; i++) {
+      for (let i = 1; i <= 21; i++) {
         const label = document.createElement("label");
         const radio = document.createElement("input");
         radio.type = "radio";
@@ -238,7 +241,7 @@
 
         // Añadir evento de clic a cada radio button
         radio.addEventListener('click', () => {
-          gridContainer.style.display = 'none';
+          gridContainer.style.visibility = 'hidden';
           showLink.style.display = 'block';
         });
       }
@@ -307,7 +310,7 @@
       // Añadir evento de clic al enlace para mostrar el grid-container
       showLink.addEventListener('click', (event) => {
         event.preventDefault();
-        gridContainer.style.display = 'grid';
+        gridContainer.style.visibility = 'visible';
         showLink.style.display = 'none';
       });
     });
