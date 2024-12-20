@@ -136,16 +136,12 @@
     }
 
     #styles-display {
-      /* background-color: #1e1e1e; */
-      color: #d4d4d4;
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 14px;
-      border-radius: 5px;
-      overflow-x: auto;
-      white-space: pre-wrap;
       line-height: 1.5;
     }
 
+    pre code.hljs {
+      border-radius: 4px;
+    }
 
     #radio-container {
       display: grid;
@@ -191,15 +187,15 @@
 
 <body>
 
-  <h1>Grid. Ejercicios (I)</h1>
+  <h1>Grid. Ejercicios (I) <span id="exercise-title"></span></h1>
 
   <div id="radio-container"></div>
 
   <div id="styles-display"></div><a href="#" id="show-link">Mostrar Grid Container</a>
 
   <div id="grid-container" class="ej3">
-    <div class="item">111111111111 111111111111</div>
-    <div class="item">111111111111 111111111111</div>
+    <div class="item">1</div>
+    <div class="item">2</div>
     <div class="item">3</div>
     <div class="item">4</div>
     <div class="item">5</div>
@@ -227,6 +223,7 @@
       const gridContainer = document.getElementById("grid-container");
       const stylesDisplay = document.getElementById("styles-display");
       const showLink = document.getElementById("show-link");
+      const exerciseTitle = document.getElementById("exercise-title");
 
       // Generar radio buttons dinámicamente
       for (let i = 1; i <= 21; i++) {
@@ -296,6 +293,9 @@
 
           // Actualizar el contenido de styles-display
           updateStylesDisplay(selectedClass);
+
+          // Actualizar el título del ejercicio
+          exerciseTitle.textContent = event.target.nextSibling.textContent;
         });
       });
 
