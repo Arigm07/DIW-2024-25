@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora con Grid</title>
+
+  <style>
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .contenedor-grid {
+      width: fit-content;
+      margin: 0 auto;
+      border: 1px solid black;
+      padding: 20px;
+      background-color: rgb(234, 234, 234);
+    }
+
+    .grid-1 {
+      display: grid;
+      gap: 5px;
+      grid-template-columns: repeat(6, minmax(auto, 98px));
+      margin-bottom: 5px;
+      /* No necesario: */
+      grid-template-rows: auto;
+    }
+
+    .grid-2 {
+      display: grid;
+      gap: 5px;
+      grid-template-columns: repeat(4, minmax(auto, 150px));
+      /* No necesario: */
+      grid-template-rows: auto;
+    }
+
+    .item {
+      text-align: center;
+      border-radius: 5px;
+      background-color: white;
+      border: 1px solid rgb(196, 196, 196);
+      padding: 5px 15px;
+    }
+
+    .item:hover {
+      background-color: rgb(196, 196, 196);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Calculadora Grid</h1>
+
+    <div class="contenedor-grid">
+      <div class="grid-1">
+        <div class="item">MC</div>
+        <div class="item">MR</div>
+        <div class="item">M+</div>
+        <div class="item">M-</div>
+        <div class="item">MS</div>
+        <div class="item">M</div>
+      </div>
+
+      <div class="grid-2">
+        <div class="item">%</div>
+        <div class="item">CE</div>
+        <div class="item">C</div>
+        <div class="item">&lArr;</div>
+        <div class="item">1/X</div>
+        <div class="item">x2</div>
+        <div class="item">&#8730;2</div>
+        <div class="item">/</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+        <div class="item">9</div>
+        <div class="item">x</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">-</div>
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">+</div>
+        <div class="item">+/-</div>
+        <div class="item">0</div>
+        <div class="item">,</div>
+        <div class="item">=</div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
