@@ -5,7 +5,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Display con width</title>
-  <link rel="stylesheet" href="display-con-width.css">
+  <style>
+    .padre {
+      border: 5px solid green;
+      margin-bottom: 50px;
+    }
+
+    .padre>* {
+      border: 5px solid black;
+      padding: 10px;
+      /* Prueba a comentar y descomentar estas propiedades para ver el comportamiento */
+      /* width: 50%; */
+      /* min-width: 50%; */
+      /* max-width: 50%; */
+    }
+
+    .d-inline {
+      display: inline;
+    }
+
+    .d-inline-block {
+      display: inline-block;
+    }
+
+    .d-block {
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
