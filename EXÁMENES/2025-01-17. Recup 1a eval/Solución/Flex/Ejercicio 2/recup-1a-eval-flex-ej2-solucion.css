@@ -1,0 +1,90 @@
+/********** Estilos generales **********/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 1.75em;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.25em;
+  border-bottom: 1px solid #555;
+  margin: 0 0 10px 0;
+}
+
+p {
+  margin: 0 0 0.5em 0;
+}
+
+.ejercicio {
+  border: 1px solid #777;
+  background-color: rgb(236, 236, 236);
+  padding: 20px;
+  margin-bottom: 1em;
+}
+
+.item-1,
+.item-2,
+.item-3 {
+  position: relative;
+}
+
+.item-1::after {
+  content: "1";
+  background-color: darkred;
+}
+
+.item-2::after {
+  content: "2";
+  background-color: darkgreen;
+}
+
+.item-3::after {
+  content: "3";
+  background-color: darkblue;
+}
+
+.item-1::after,
+.item-2::after,
+.item-3::after {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  padding: 3px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875em;
+}
+
+th,
+td {
+  border: 1px solid #000;
+  padding: 10px;
+  vertical-align: top;
+}
+
+td {
+  text-align: left;
+}

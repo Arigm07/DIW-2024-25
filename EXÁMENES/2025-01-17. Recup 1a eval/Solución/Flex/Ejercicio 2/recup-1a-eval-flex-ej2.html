@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2025-01-17. Recup. 1a eval. Flex. Ej. 2</title>
+  <link rel="stylesheet" href="recup-1a-eval-flex-ej2-solucion.css">
+  <link rel="stylesheet" href="recup-1a-eval-flex-ej2-columnas.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <h1>Recuperación 1ª evaluación. Flex. Ejercicio 2</h1>
+
+    <div class="ejercicio">
+      <p>Resultado solicitado:</p>
+
+      <div class="row fila-1">
+        <div class="item-1 col-d-3 col-t-4">
+          <p>1 Lorem ipsum</p>
+        </div>
+
+        <div class="item-2 col-d-3">
+          <p>2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae sapiente tempore delectus laboriosam esse veritatis, totam, itaque saepe ipsum laudantium et ratione, praesentium provident?</p>
+        </div>
+
+        <div class="item-3 col">
+          <p>3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque non, quidem cum laudantium numquam ducimus explicabo vero possimus?</p>
+        </div>
+      </div>
+
+      <p>Descripción del comportamiento de cada ítem en cada zona:</p>
+
+      <table>
+        <tr>
+          <th></th>
+          <th>Item 1</th>
+          <th>Item 2</th>
+          <th>Item 3</th>
+        </tr>
+        <tr>
+          <th>Escritorio</th>
+          <td>Ocupa 3 columnas. Está centrado verticalmente.</td>
+          <td>Ocupa 3 columnas. Aparece el último.</td>
+          <td>Ocupa el espacio restante que dejan sus hermanos. Si se elimina cualquiera de sus hermanos, este ítem se apropiará de ese espacio restante. Ocupa el alto estrictamente necesario para alojar su contenido.</td>
+        </tr>
+        <tr>
+          <th>Tablets</th>
+          <td>Ocupa 4 columnas.</td>
+          <td>No aparece.</td>
+          <td>Ocupa el espacio restante que dejan sus hermanos.</td>
+        </tr>
+        <tr>
+          <th>Móviles</th>
+          <td>Ocupa el 100% del ancho de pantalla. Aparece el último.</td>
+          <td>Ocupa el 100% del ancho de pantalla.</td>
+          <td>Ocupa el 100% del ancho de pantalla.</td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+</body>
+
+</html>
