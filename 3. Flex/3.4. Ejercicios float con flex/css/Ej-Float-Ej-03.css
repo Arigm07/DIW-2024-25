@@ -1,4 +1,9 @@
-#container {
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.container-flex {
   display: flex;
   flex-direction: row-reverse;
 }
@@ -8,7 +13,7 @@
   flex-direction: column;
 }
 
-.divtexto {
+.div-texto {
   background-color: coral;
   padding-right: 50px;
 }
@@ -16,6 +21,7 @@
 .div1 {
   padding: 50px;
   background-color: pink;
+  align-self: flex-start;
 }
 
 .div2 {
@@ -28,5 +34,5 @@ code {
   font-size: 90%;
   background-color: lightgrey;
   padding: 2px 5px;
-  font-family: 'Consolas', 'Lucida Console', 'Courier New', Courier, monospace;
+  font-family: "Consolas", "Lucida Console", "Courier New", Courier, monospace;
 }

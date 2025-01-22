@@ -8,7 +8,7 @@
   flex-direction: column;
 }
 
-.divtexto {
+.div-texto {
   background-color: coral;
   padding-right: 50px;
 }
@@ -28,5 +28,5 @@ code {
   font-size: 90%;
   background-color: lightgrey;
   padding: 2px 5px;
-  font-family: 'Consolas', 'Lucida Console', 'Courier New', Courier, monospace;
+  font-family: "Consolas", "Lucida Console", "Courier New", Courier, monospace;
 }

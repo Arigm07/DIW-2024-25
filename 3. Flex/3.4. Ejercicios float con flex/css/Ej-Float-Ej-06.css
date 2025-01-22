@@ -11,7 +11,7 @@ img {
   width: 200px;
 }
 
-.divtexto {
+.div-texto {
   padding: 0px 15px;
   background-color: aqua;
 }
@@ -20,5 +20,5 @@ code {
   font-size: 90%;
   background-color: lightgrey;
   padding: 2px 5px;
-  font-family: 'Consolas', 'Lucida Console', 'Courier New', Courier, monospace;
+  font-family: "Consolas", "Lucida Console", "Courier New", Courier, monospace;
 }
