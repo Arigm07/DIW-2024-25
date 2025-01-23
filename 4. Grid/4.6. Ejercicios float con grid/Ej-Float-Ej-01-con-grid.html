@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios Float. Ej. 1. Ahora con grid</title>
+  <link rel="stylesheet" href="../../Utils/css/general.css">
+  <link rel="stylesheet" href="css/Ej-Float-Ej-01.css">
+
+  <!-- Tema CSS para highlight.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/night-owl.min.css" integrity="sha512-i5X6Fdn/ZqvGSqPrdMa3FgcpXM/Nr6YccSKFYT93zljl/HZDEpvBbE5Pxp91eiWGccZLrL/LDQJd7fjTRYsVaA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+<body>
+
+  <div id="container">
+    <div class="div1">Div1</div>
+    <div class="div2">Div2</div>
+  </div>
+
+  <div class="explanation">
+    <p><strong>Explicación:</strong></p>
+
+    <p>Algunas formas de hacerlo con grid:</p>
+
+    <ol>
+      <li>
+        <p>La más elegante. Poniendo en el contenedor <code>grid-auto-flow: column</code> y <code>justify-content: space-between</code> conseguimos el efecto de separación. Y con <code>order: 1</code> en Div1 hacemos que aparezca a la derecha.</p>
+      </li>
+
+      <li>
+        <p>Menos elegante, podemos poner en el contenedor <code>grid-auto-flow: column</code> y, para conseguir el efecto de separación, <code>margin-left: auto</code> al Div1 y <code>margin-right: auto</code> al Div2. De nuevo, con <code>order: 1</code> en Div1 hacemos que aparezca a la derecha.</p>
+      </li>
+
+      <li>
+        <p>Regulera. Poniendo en el contenedor <code>grid-template-columns: auto 1fr auto</code> y <code>grid-template-areas: "a . b"</code>. Y ya solo tenemos que situar los ítems en sus posiciones con <code>grid-area</code>.</p>
+      </li>
+
+      <li>
+        <p>Caca de la vaca. Poniendo en el contenedor <code>grid-template-columns: auto 1fr auto</code> y metiendo un div vacío en medio de los dos para que ocupe la columna con <code>1fr</code>. Solo faltaría reordenar con <code>order</code>. Hay que evitar meter divs vacíos (o cualquier otro tag vacío) cuando podemos conseguir lo mismo usando las propiedades adecuadas.</p>
+      </li>
+    </ol>
+  </div>
+
+</body>
+
+</html>
