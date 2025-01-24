@@ -60,3 +60,9 @@ pre {
 .explanation p:last-child {
   margin: 0;
 }
+
+img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
