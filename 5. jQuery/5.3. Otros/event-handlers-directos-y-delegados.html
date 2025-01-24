@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event handlers directos y delegados</title>
+
+  <!-- jQuery -->
+  <script src="../jquery-3.7.1.min.js"></script>
+
+  <!-- highlight.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/vs2015.min.css" integrity="sha512-mtXspRdOWHCYp+f4c7CkWGYPPRAhq9X+xCvJMUBVAb6pqA4U8pxhT3RWT3LP3bKbiolYL2CkL1bSKZZO4eeTew==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    *,
+    *::after,
+    *::before {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #efefef;
+    }
+
+    #container {
+      max-width: 900px;
+      margin-inline: auto;
+      background-color: #fff;
+      padding: 1em;
+    }
+
+    h1 {
+      font-size: 1.75em;
+      text-align: center;
+      margin-block: 0 0.5em;
+    }
+
+    ul {
+      margin-top: 0;
+    }
+
+    ul li {
+      cursor: pointer;
+    }
+
+    ul li:hover {
+      font-weight: bold;
+    }
+
+    #mensaje {
+      padding: 0.5em;
+      background-color: #ddd;
+      margin-block: 1em;
+    }
+
+    .bordered {
+      border: 1px solid #333;
+      padding: 1em;
+      margin-block: 1em 0;
+    }
+
+    code.inline {
+      font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 87.5%;
+      font-weight: bold;
+      color: #e83e8c;
+      word-break: break-word;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="container">
+
+    <h1>Event handlers directos y delegados</h1>
+
+    <p>Haz clic sobre cualquier elemento de la lista que ya existe. Verás que se dispararán los eventos <code class="inline">click</code> tanto directos como delegados.</p>
+
+    <div class="bordered">
+      <ul>
+        <li>Manzana</li>
+        <li>Pera</li>
+      </ul>
+
+      <input type="button" id="insertar-li" value="Insertar li">
+
+      <input type="button" id="insertar-ul" value="Insertar ul">
+
+      <div id="mensaje"></div>
+
+      <input type="button" id="borrar" value="Borrar mensajes" onclick="$('#mensaje').empty()">
+    </div>
+
+    <pre><code class="javascript">// Event handler DIRECTO
+// Se asigna directamente a los elementos li descendientes de un ul
+$("ul li").on('click', function () { });
+
+// Event handler DELEGADO
+// Se asigna a ul y se dispara cuando un li descendiente lanza el evento clic
+$('ul').on('click', 'li', function () { });</code></pre>
+
+    <p>Ahora, inserta un elemento <code class="inline">li</code> dinámicamente en la lista con el botón. Verás que al hacer clic sobre este nuevo elemento el evento directo no se dispara, sólo el delegado. Ocurre lo mismo con cualquier elemento <code class="inline">li</code> descendiente del <code class="inline">ul</code> original, no necesariamente deben ser hijos directos.</p>
+
+
+    <p>Los <b>event handlers directos</b> se asignan directamente a un elemento o conjunto de elementos que ya deben existir en el DOM en el momento de la asignación. Por tanto, <u>no funcionan para elementos que se crean dinámicamente después de que se asignó el manejador</u>.</p>
+    <p>Los <b>event handlers delegados</b> se asignan a un elemento padre que ya existe en el DOM y se dispara cuando un elemento hijo lanza el evento. Por tanto, <u>también funcionan para elementos que se crean dinámicamente después de que se asignó el manejador</u>.</p>
+
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      hljs.highlightAll();
+
+      $("ul li").on('click', function () {
+        var nuevoDiv = $("<div>").text('Event handler DIRECTO: ' + $(this).text());
+        $("#mensaje").append(nuevoDiv);
+      });
+
+      $('ul').on('click', 'li', function () {
+        var nuevoDiv = $("<div>").text('Event handler DELEGADO: ' + $(this).text());
+        $("#mensaje").append(nuevoDiv);
+      });
+
+      $("#insertar-li").on('click', function () {
+        $("ul").append($("<li>").css("background-color", "lightgreen").text("Fresa"));
+        $(this).attr("disabled", "true");
+      });
+
+      $("#insertar-ul").on('click', function () {
+        var nuevaLista = $("<ul>").append(
+          $("<li>").text("Plátano"),
+          $("<li>").text("Naranja")
+        );
+        $("ul").append(nuevaLista);
+        $(this).attr("disabled", "true");
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>
