@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (I)</title>
+  <link rel="stylesheet" href="../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+  <script src="../jquery-3.7.1.min.js"></script>
+
+  <!-- Tema CSS para highlight.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/night-owl.min.css" integrity="sha512-i5X6Fdn/ZqvGSqPrdMa3FgcpXM/Nr6YccSKFYT93zljl/HZDEpvBbE5Pxp91eiWGccZLrL/LDQJd7fjTRYsVaA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <style>
+    #container {
+      display: block !important;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    .exercise {
+      margin-block: 20px;
+    }
+
+    .exercise>p {
+      margin-bottom: 0;
+    }
+
+    /* Estilos para las soluciones */
+    .solution {
+      display: none;
+      padding: 1px;
+    }
+
+    code.hljs {
+      border-radius: 5px;
+    }
+
+    pre:has(code.hljs) {
+      margin: 0 !important;
+    }
+
+    .toggle-btn {
+      display: block;
+      margin: 0.5em 0 0.75em 0;
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .toggle-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <h1>Ejercicios jQuery (I)</h1>
+
+    <p>A partir del siguiente código:</p>
+
+    <pre><code>&lt;style&gt;
+  .highlight { background-color: yellow; }
+  .hidden { display: none; }
+&lt;/style&gt;
+
+&lt;h1 id=&quot;main-title&quot;&gt;Título principal&lt;/h1&gt;
+&lt;p id=&quot;description&quot; class=&quot;hidden&quot;&gt;Este es un párrafo con una clase oculta.&lt;/p&gt;
+&lt;button id=&quot;toggle-class&quot;&gt;Cambiar clase&lt;/button&gt;
+&lt;input id=&quot;input-field&quot; type=&quot;text&quot; value=&quot;Texto inicial&quot;&gt;
+&lt;a id=&quot;link&quot; href=&quot;https://example.com&quot;&gt;Ir a Example&lt;/a&gt;
+&lt;button id=&quot;submit-button&quot; disabled&gt;Enviar&lt;/button&gt;</code></pre>
+
+    <hr>
+    <style>
+      .highlight {
+        background-color: yellow;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+
+    <h1 id="main-title">Título principal</h1>
+    <p id="description" class="hidden">Este es un párrafo con una clase oculta.</p>
+    <button id="toggle-class">Cambiar clase</button>
+    <input id="input-field" type="text" value="Texto inicial">
+    <a id="link" href="https://example.com">Ir a Example</a>
+    <button id="submit-button" disabled>Enviar</button>
+
+    <script>
+      $(document).ready(function () {
+        $("#submit-button")[0].removeAttribute("disabled");
+        // Hay que poner [0], esto no vale:
+        // $("#submit-button")[0].removeAttribute("disabled");
+        // Porque removeAttribute() funciona con elementos del DOM, no con objetos jQuery, que es lo que devuelve $("#submit-button")
+      });
+    </script>
+
+    <hr>
+
+    <div class="exercise">
+      <p><strong>1.</strong> Usa <code>addClass()</code> para añadir la clase <code>highlight</code> al elemento <code>#main-title</code>.</p>
+      <button class="toggle-btn">Mostrar solución</button>
+      <div class="solution">
+        <pre><code class="language-javascript">$("#main-title").addClass("highlight");</code></pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <p><strong>2.</strong> Usa <code>attr()</code> para cambiar el atributo <code>href</code> del enlace <code>#link</code>.</p>
+      <button class="toggle-btn">Mostrar solución</button>
+      <div class="solution">
+        <pre><code class="language-javascript">$("#link").attr("href", "https://google.com");</code></pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <p><strong>3.</strong> Usa <code>hasClass()</code> para comprobar si el párrafo <code>#description</code> tiene la clase <code>hidden</code>. Muestra el resultado en la consola.</p>
+      <button class="toggle-btn">Mostrar solución</button>
+      <div class="solution">
+        <pre><code class="language-javascript">if ($("#description").hasClass("hidden")) {
+  console.log("El párrafo tiene la clase 'hidden'.");
+}
+else {
+  console.log("El párrafo no tiene la clase 'hidden'.");
+}</code></pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <p><strong>4.</strong> Usa <code>html()</code> para cambiar el contenido del título con ID <code>main-title</code> a <em>Título actualizado con jQuery</em>.</p>
+      <button class="toggle-btn">Mostrar solución</button>
+      <div class="solution">
+        <pre><code class="language-javascript">$("#main-title").html("¡Título actualizado con jQuery!");</code></pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <p><strong>5.</strong> Usa <code>prop()</code> para habilitar el botón con ID <code>submit-button</code>.</p>
+      <button class="toggle-btn">Mostrar solución</button>
+      <div class="solution">
+        <pre><code class="language-javascript">$("#submit-button").prop("disabled", false);</code></pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <p><strong>6.</strong> Usa <code>removeAttr()</code> para eliminar el atributo <code>href</code> del enlace con ID <code>link</code>.</p>
+      <button class="toggle-btn">Mostrar solución</button>
+      <div class="solution">
+        <pre><code class="language-javascript">$("#link").removeAttr("href");</code></pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <p><strong>7.</strong> Usa <code>removeClass()</code> para quitar la clase <code>hidden</code> del párrafo <code>#description</code>.</p>
+      <button class="toggle-btn">Mostrar solución</button>
+      <div class="solution">
+        <pre><code class="language-javascript">$("#description").removeClass("hidden");</code></pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <p><strong>8.</strong> Usa <code>removeProp()</code> para eliminar la propiedad <code>disabled</code> del botón <code>#submit-button</code>.</p>
+      <button class="toggle-btn">Mostrar solución</button>
+      <div class="solution">
+        <pre><code class="language-javascript">$(&quot;#submit-button&quot;)[0].removeAttribute(&quot;disabled&quot;);
+// Hay que poner [0], esto no vale:
+// $(&quot;#submit-button&quot;)[0].removeAttribute(&quot;disabled&quot;);
+// Porque removeAttribute() funciona con elementos del DOM, no con objetos jQuery, que es lo que devuelve $(&quot;#submit-button&quot;)</code></pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <p><strong>9.</strong> Usa <code>toggleClass()</code> para alternar la clase <code>highlight</code> en el botón <code>#toggle-class</code> cada vez que se haga clic en él.</p>
+      <button class="toggle-btn">Mostrar solución</button>
+      <div class="solution">
+        <pre><code class="language-javascript">$("#toggle-class").on("click", function () {
+  $(this).toggleClass("highlight");
+});</code></pre>
+      </div>
+    </div>
+
+    <div class="exercise">
+      <p><strong>10.</strong> Usa <code>val()</code> para cambiar el valor del campo de entrada con ID <code>#input-field</code>.</p>
+      <button class="toggle-btn">Mostrar solución</button>
+      <div class="solution">
+        <pre><code class="language-javascript">$("#input-field").val("Nuevo texto");</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $(".toggle-btn").on("click", function () {
+        $(this).next(".solution").slideToggle();
+      });
+    });
+  </script>
+
+  <!-- highlight.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js" integrity="sha512-6yoqbrcLAHDWAdQmiRlHG4+m0g/CT/V9AGyxabG8j7Jk8j3r3K6due7oqpiRMZqcYe9WM2gPcaNNxnl2ux+3tA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>hljs.highlightAll();</script>
+
+  <!-- Función para copiar el contenido del pre tag -->
+  <script src="../../Utils/js/copy-button-pre-tag.js"></script>
+</body>
+
+</html>
