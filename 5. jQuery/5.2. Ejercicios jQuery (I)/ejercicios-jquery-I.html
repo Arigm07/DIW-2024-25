@@ -159,10 +159,13 @@ else {
     </div>
 
     <div class="exercise">
-      <p><strong>6.</strong> Usa <code>removeAttr()</code> para eliminar el atributo <code>href</code> del enlace con ID <code>link</code>.</p>
+      <p><strong>6.</strong> Usa <code>removeAttr()</code> para eliminar el atributo <code>href</code> del enlace con <code>#link</code>.</p>
       <button class="toggle-btn">Mostrar solución</button>
       <div class="solution">
-        <pre><code class="language-javascript">$("#link").removeAttr("href");</code></pre>
+        <pre><code class="language-javascript">$(&quot;#link&quot;).removeAttr(&quot;href&quot;);
+// No confundir con removeAttribute() que es la función JavaScript nativa que usa jQuery para removeAttr(). removeAttribute() se usa sobre elementos del DOM, mientras que removeAttr() se puede usar sobre objetos jQuery.
+// Si quiesiéramos usar removeAttribute() tendríamos que hacerlo así:
+// $(&quot;#link&quot;)[0].removeAttribute(&quot;href&quot;);</code></pre>
       </div>
     </div>
 
@@ -178,10 +181,7 @@ else {
       <p><strong>8.</strong> Usa <code>removeProp()</code> para eliminar la propiedad <code>disabled</code> del botón <code>#submit-button</code>.</p>
       <button class="toggle-btn">Mostrar solución</button>
       <div class="solution">
-        <pre><code class="language-javascript">$(&quot;#submit-button&quot;)[0].removeAttribute(&quot;disabled&quot;);
-// Hay que poner [0], esto no vale:
-// $(&quot;#submit-button&quot;)[0].removeAttribute(&quot;disabled&quot;);
-// Porque removeAttribute() funciona con elementos del DOM, no con objetos jQuery, que es lo que devuelve $(&quot;#submit-button&quot;)</code></pre>
+        <pre><code class="language-javascript">$(&#39;#submit-button&#39;).removeProp(&#39;disabled&#39;);</code></pre>
       </div>
     </div>
 
@@ -202,13 +202,100 @@ else {
         <pre><code class="language-javascript">$("#input-field").val("Nuevo texto");</code></pre>
       </div>
     </div>
+
+    <div class="exercise">
+      <p>Todas las soluciones juntas:</p>
+      <button class="toggle-btn">Mostrar solución</button>
+      <div class="solution">
+        <pre><code class="language-javascript">// Ejercicio 1
+$(&quot;#main-title&quot;).addClass(&quot;highlight&quot;);
+
+// Ejercicio 2
+$(&quot;#link&quot;).attr(&quot;href&quot;, &quot;https://google.com&quot;);
+
+// Ejercicio 3
+if ($(&quot;#description&quot;).hasClass(&quot;hidden&quot;)) {
+  console.log(&quot;El párrafo tiene la clase &#39;hidden&#39;.&quot;);
+}
+else {
+  console.log(&quot;El párrafo no tiene la clase &#39;hidden&#39;.&quot;);
+}
+
+// Ejercicio 4
+$(&quot;#main-title&quot;).html(&quot;¡Título actualizado con jQuery!&quot;);
+
+// Ejercicio 5
+$(&quot;#submit-button&quot;).prop(&quot;disabled&quot;, false);
+
+// Ejercicio 6
+$(&quot;#link&quot;).removeAttr(&quot;href&quot;);
+// No confundir con removeAttribute() que es la función JavaScript nativa que usa jQuery para removeAttr(). removeAttribute() se usa sobre elementos del DOM, mientras que removeAttr() se puede usar sobre objetos jQuery.
+// Si quiesiéramos usar removeAttribute() tendríamos que hacerlo así:
+// $(&quot;#link&quot;)[0].removeAttribute(&quot;href&quot;);
+
+// Ejercicio 7
+$(&quot;#description&quot;).removeClass(&quot;hidden&quot;);
+
+// Ejercicio 8
+$(&#39;#submit-button&#39;).removeProp(&#39;disabled&#39;);
+
+// Ejercicio 9
+$(&quot;#toggle-class&quot;).on(&quot;click&quot;, function () {
+  $(this).toggleClass(&quot;highlight&quot;);
+});
+
+// Ejercicio 10
+$(&quot;#input-field&quot;).val(&quot;Nuevo texto&quot;);</code></pre>
+      </div>
+    </div>
   </div>
 
   <script>
     $(document).ready(function () {
+      // Mostrar y ocultar soluciones
       $(".toggle-btn").on("click", function () {
         $(this).next(".solution").slideToggle();
       });
+
+      // Ejercicio 1
+      $("#main-title").addClass("highlight");
+
+      // Ejercicio 2
+      $("#link").attr("href", "https://google.com");
+
+      // Ejercicio 3
+      if ($("#description").hasClass("hidden")) {
+        console.log("El párrafo tiene la clase 'hidden'.");
+      }
+      else {
+        console.log("El párrafo no tiene la clase 'hidden'.");
+      }
+
+      // Ejercicio 4
+      $("#main-title").html("¡Título actualizado con jQuery!");
+
+      // Ejercicio 5
+      $("#submit-button").prop("disabled", false);
+
+      // Ejercicio 6
+      $("#link").removeAttr("href");
+      // No confundir con removeAttribute() que es la función JavaScript nativa que usa jQuery para removeAttr(). removeAttribute() se usa sobre elementos del DOM, mientras que removeAttr() se puede usar sobre objetos jQuery.
+      // Si quiesiéramos usar removeAttribute() tendríamos que hacerlo así:
+      // $("#link")[0].removeAttribute("href");
+
+      // Ejercicio 7
+      $("#description").removeClass("hidden");
+
+      // Ejercicio 8
+      $('#submit-button').removeProp('disabled');
+
+      // Ejercicio 9
+      $("#toggle-class").on("click", function () {
+        $(this).toggleClass("highlight");
+      });
+
+      // Ejercicio 10
+      $("#input-field").val("Nuevo texto");
     });
   </script>
 
