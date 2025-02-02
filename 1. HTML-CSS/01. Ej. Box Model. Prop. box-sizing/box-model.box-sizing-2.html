@@ -5,24 +5,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Box Model. Prop. box-sizing</title>
+  <link rel="stylesheet" href="../../Utils/css/general.css">
   <style>
-    * {
-      box-sizing: border-box;
+    .container {
+      width: 100%;
+      overflow: hidden;
     }
 
-    div {
+    div.div {
       width: 50%;
       padding: 20px;
       border: 10px solid black;
       background-color: lightblue;
       float: left;
     }
+
+    label {
+      display: inline-block;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+    }
   </style>
 </head>
 
 <body>
-  <div>DIV 1</div>
-  <div>DIV 2</div>
+
+  <div class="explanation">
+    <p><strong>Explicación:</strong></p>
+
+    <p>Si eliminamos <code>box-sizing: border-box</code>, los elementos <code>div</code> tendrán un comportamiento diferente en cuanto al tamaño.</p>
+    <p>El ancho especificado del 50% solo incluirá el contenido, y el padding y el borde se añadirán a este ancho, haciendo que los <code>div</code> sean más anchos de ese 50%, lo que implica que DIV2 baje a la línea siguiente.</p>
+
+    <div>
+      <label>
+        <input type="radio" name="box-sizing" value="content-box" id="content-box-radio"> Content-box
+      </label>
+      <label>
+        <input type="radio" name="box-sizing" value="border-box" id="border-box-radio" checked> Border-box
+      </label>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="div">DIV1</div>
+    <div class="div">DIV2</div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var radioButtons = document.querySelectorAll('input[name="box-sizing"]');
+      radioButtons.forEach(function (radio) {
+        radio.addEventListener('change', function () {
+          var boxSizingValue = this.value;
+          var divs = document.querySelectorAll('div.div');
+          divs.forEach(function (div) {
+            div.style.boxSizing = boxSizingValue;
+          });
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
