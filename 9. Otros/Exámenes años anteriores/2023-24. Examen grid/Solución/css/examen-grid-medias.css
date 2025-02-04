@@ -1,0 +1,110 @@
+/* MÓVILES: <600px */
+@media only screen and (max-width: 599px) {
+
+  main {
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  main>div:nth-child(1) {
+    grid-column: 1/-1;
+  }
+
+  main>div:nth-child(2) {
+    grid-column: 1/-1;
+  }
+
+  main>div:nth-child(3) {}
+
+  main>div:nth-child(4) {
+    grid-column: 2/-1;
+  }
+
+  main>div:nth-child(5) {
+    grid-column: 1/-1;
+    grid-row: 3/6;
+  }
+
+  main>div:nth-child(6) {
+    grid-column: 2/3;
+    grid-row: 4/5;
+  }
+}
+
+/* TABLETS: 600-900px */
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+
+  main {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "uno uno uno uno"
+      "dos tres tres tres"
+      "cuatro cuatro cinco cinco"
+      "seis seis seis seis";
+    /*
+      También valdría, pero es menos preferible:
+      grid-template-areas:
+        "uno    uno    uno   uno  "
+        "dos    .      tres  .    "
+        "cuatro cuatro cinco cinco"
+        "seis   seis   seis  seis ";
+    */
+  }
+
+  main>div:nth-child(1) {
+    grid-area: uno;
+  }
+
+  main>div:nth-child(2) {
+    grid-area: dos;
+  }
+
+  main>div:nth-child(3) {
+    grid-area: tres;
+    justify-self: center;
+    align-self: center;
+  }
+
+  main>div:nth-child(4) {
+    grid-area: cuatro;
+    display: grid;
+    align-content: center;
+  }
+
+  main>div:nth-child(5) {
+    grid-area: cinco;
+  }
+
+  main>div:nth-child(6) {
+    grid-area: seis;
+    justify-self: center;
+  }
+}
+
+/* ESCRITORIO: 1000+px */
+@media only screen and (min-width: 900px) {
+
+  main {
+    grid-template-columns: min-content 1fr auto;
+    align-items: center;
+  }
+
+  main>div:nth-child(1) {}
+
+  main>div:nth-child(2) {
+    justify-self: end;
+  }
+
+  main>div:nth-child(3) {}
+
+  main>div:nth-child(4) {}
+
+  main>div:nth-child(5) {}
+
+  main>div:nth-child(6) {
+    align-self: stretch;
+    display: grid;
+    align-content: end;
+    justify-content: end;
+    /* O también: place-content: end; */
+  }
+}
