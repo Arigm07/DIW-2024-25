@@ -14,20 +14,31 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/night-owl.min.css" integrity="sha512-i5X6Fdn/ZqvGSqPrdMa3FgcpXM/Nr6YccSKFYT93zljl/HZDEpvBbE5Pxp91eiWGccZLrL/LDQJd7fjTRYsVaA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
   <style>
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 135px;
+    }
+
     #container {
       display: block !important;
     }
 
+    .exercise h3 {
+      border-bottom: 3px solid transparent;
+      transition: border-bottom 0.3s ease;
+    }
+
+    .exercise:hover h3 {
+      border-bottom: 3px solid #007bff;
+    }
+
+
     p {
-      margin-top: 0;
+      margin-block: 0.5em;
     }
 
     .exercise {
       margin-bottom: 20px;
-    }
-
-    .exercise>p {
-      margin-bottom: 0;
     }
 
     .solution {
@@ -53,28 +64,86 @@
     .toggle-btn:hover {
       background-color: #0056b3;
     }
+
+    #header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      background-color: #e5e4c5;
+    }
+
+    #navbar {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      background-color: #343a40;
+      padding: 3px;
+    }
+
+    #navbar a {
+      text-decoration: none;
+      color: #ffffff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    #navbar a:hover {
+      background-color: #007bff;
+      text-decoration: none;
+    }
   </style>
 </head>
 
 <body>
+  <div id="header">
+    <h1>Ejercicios jQuery (II)</h1>
+    <div id="navbar">
+      <a href="#ejercicio1">Ej.1</a>
+      <a href="#ejercicio2">Ej.2</a>
+      <a href="#ejercicio3">Ej.3</a>
+      <a href="#ejercicio4">Ej.4</a>
+      <a href="#ejercicio5">Ej.5</a>
+      <a href="#ejercicio6">Ej.6</a>
+      <a href="#ejercicio7">Ej.7</a>
+      <a href="#ejercicio8">Ej.8</a>
+      <a href="#ejercicio9">Ej.9</a>
+      <a href="#ejercicio10">Ej.10</a>
+      <a href="#ejercicio11">Ej.11</a>
+      <a href="#ejercicio12">Ej.12</a>
+      <a href="#ejercicio13">Ej.13</a>
+      <a href="#ejercicio14">Ej.14</a>
+      <a href="#ejercicio15">Ej.15</a>
+      <a href="#ejercicio16">Ej.16</a>
+      <a href="#ejercicio17">Ej.17</a>
+    </div>
+  </div>
 
   <div id="container">
-    <h1>Ejercicios jQuery (II)</h1>
-
+    <!-- Ejercicio 1 -->
     <div class="exercise">
-      <p><strong>1.</strong> Crea el código HTML y jQuery de un textarea y un contador de caracteres. Cuando el usuario escriba en el textarea se actualizará un contador del número de caracteres que tiene el textarea. Ese contador se mostrará al usuario justo debajo del textarea.</p>
+      <h3 id="ejercicio1">Ejercicio 1</h3>
+      <p>Crea el código HTML y jQuery de un textarea y un contador de caracteres. Cuando el usuario escriba en el textarea se actualizará un contador del número de caracteres que tiene el textarea. Ese contador se mostrará al usuario justo debajo del textarea.</p>
     </div>
 
+    <!-- Ejercicio 2 -->
     <div class="exercise">
-      <p><strong>2.</strong> Crea el código jQuery para que se muestre por consola la posición del scroll cuando se haga scroll vertical.</p>
+      <h3 id="ejercicio2">Ejercicio 2</h3>
+      <p>Crea el código jQuery para que se muestre por consola la posición del scroll cuando se haga scroll vertical.</p>
     </div>
 
+    <!-- Ejercicio 3 -->
     <div class="exercise">
-      <p><strong>3.</strong> Crea el código jQuery que ponga la clase <code>sinalt</code> a todas las imágenes que no tengan el atributo <code>alt</code> o lo tengan vacío.</p>
+      <h3 id="ejercicio3">Ejercicio 3</h3>
+      <p>Crea el código jQuery que ponga la clase <code>sinalt</code> a todas las imágenes que no tengan el atributo <code>alt</code> o lo tengan vacío.</p>
     </div>
 
+    <!-- Ejercicio 4 -->
     <div class="exercise">
-      <p><strong>4.</strong> Crea el código jQuery a partir del siguiente HTML/CSS, de forma que cuando se haga clic en alguno de los ítems, a ese ítem se le incluya la clase <code>active</code> y se le quite al que lo tuviera antes.</p>
+      <h3 id="ejercicio4">Ejercicio 4</h3>
+      <p>Crea el código jQuery a partir del siguiente HTML/CSS, de forma que cuando se haga clic en alguno de los ítems, a ese ítem se le incluya la clase <code>active</code> y se le quite al que lo tuviera antes.</p>
       <pre><code>&lt;style&gt;
   #navbar {
     display: flex;
@@ -101,14 +170,18 @@
 &lt;/nav&gt;</code></pre>
     </div>
 
+    <!-- Ejercicio 5 -->
     <div class="exercise">
-      <p><strong>5.</strong> A partir del siguiente HTML, crea el código jQuery que haga que al pulsar el botón se habilite el input.</p>
+      <h3 id="ejercicio5">Ejercicio 5</h3>
+      <p>A partir del siguiente HTML, crea el código jQuery que haga que al pulsar el botón se habilite el input.</p>
       <pre><code class="language-html">&lt;button id=&quot;my-button&quot;&gt;Botón&lt;/button&gt;
 &lt;input type=&quot;text&quot; id=&quot;my-input&quot; disabled&gt;</code></pre>
     </div>
 
+    <!-- Ejercicio 6 -->
     <div class="exercise">
-      <p><strong>6.</strong> A partir del siguiente formulario, crea el código jQuery para que el checkbox habilite/deshabilite el botón Enviar.</p>
+      <h3 id="ejercicio6">Ejercicio 6</h3>
+      <p>A partir del siguiente formulario, crea el código jQuery para que el checkbox habilite/deshabilite el botón Enviar.</p>
       <pre><code class="language-html">&lt;form&gt;
   &lt;label for=&quot;checkbox&quot;&gt; Selecciona para habilitar el botón:&lt;/label&gt;
   &lt;input type=&quot;checkbox&quot; id=&quot;checkbox&quot;&gt;
@@ -117,8 +190,10 @@
 &lt;/form&gt;</code></pre>
     </div>
 
+    <!-- Ejercicio 7 -->
     <div class="exercise">
-      <p><strong>7.</strong> A partir del siguiente HTML en el que tenemos 3 radiobuttons con opciones de marcas de coche, cuando el usuario modifique la opción seleccionada aparecerá un mensaje indicando la opción seleccionada.</p>
+      <h3 id="ejercicio7">Ejercicio 7</h3>
+      <p>A partir del siguiente HTML en el que tenemos 3 radiobuttons con opciones de marcas de coche, cuando el usuario modifique la opción seleccionada aparecerá un mensaje indicando la opción seleccionada.</p>
       <pre><code class="language-html">&lt;input type=&quot;radio&quot; id=&quot;audi&quot; name=&quot;brand&quot; value=&quot;Audi&quot;&gt;
 &lt;label for=&quot;audi&quot;&gt;Audi&lt;/label&gt;
 
@@ -131,8 +206,10 @@
 &lt;p id=&quot;message&quot;&gt;&lt;/p&gt;</code></pre>
     </div>
 
+    <!-- Ejercicio 8 -->
     <div class="exercise">
-      <p><strong>8.</strong> A partir del siguiente HTML en el que tenemos 3 checkboxes con marcas de coche, cuando el usuario marque o desmarque un checkbox aparecerá un mensaje indicando la opción u opciones seleccionadas. Si no ha seleccionado ninguna, también saldrá el mensaje indicándolo.</p>
+      <h3 id="ejercicio8">Ejercicio 8</h3>
+      <p>A partir del siguiente HTML en el que tenemos 3 checkboxes con marcas de coche, cuando el usuario marque o desmarque un checkbox aparecerá un mensaje indicando la opción u opciones seleccionadas. Si no ha seleccionado ninguna, también saldrá el mensaje indicándolo.</p>
       <pre><code class="language-html">&lt;input type=&quot;checkbox&quot; id=&quot;audi&quot; name=&quot;brand&quot; value=&quot;Audi&quot;&gt;
 &lt;label for=&quot;audi&quot;&gt;Audi&lt;/label&gt;
 
@@ -145,8 +222,10 @@
 &lt;p id=&quot;message&quot;&gt;&lt;/p&gt;</code></pre>
     </div>
 
+    <!-- Ejercicio 9 -->
     <div class="exercise">
-      <p><strong>9.</strong> Crea un código jQuery en el que se muestre por consola la diferencia entre los métodos <code>width()</code>, <code>innerWidth()</code>, <code>outerWidth()</code> y <code>outerWidth(true)</code> a partir del HTML/CSS siguiente:</p>
+      <h3 id="ejercicio9">Ejercicio 9</h3>
+      <p>Crea un código jQuery en el que se muestre por consola la diferencia entre los métodos <code>width()</code>, <code>innerWidth()</code>, <code>outerWidth()</code> y <code>outerWidth(true)</code> a partir del HTML/CSS siguiente:</p>
       <pre><code class="language-html">&lt;style&gt;
   #ejemplo {
     width: 200px;
@@ -159,8 +238,10 @@
 &lt;div id=&quot;ejemplo&quot;&gt;&lt;/div&gt;</code></pre>
     </div>
 
+    <!-- Ejercicio 10 -->
     <div class="exercise">
-      <p><strong>10.</strong> Crea el código jQuery que compruebe si los dos campos de texto del siguiente formulario de login están vacíos. Proporciona 2 soluciones:</p>
+      <h3 id="ejercicio10">Ejercicio 10</h3>
+      <p>Crea el código jQuery que compruebe si los dos campos de texto del siguiente formulario de login están vacíos. Proporciona 2 soluciones:</p>
       <p><strong>10.1.</strong> Si alguno lo está, mostrará un mensaje de alerta debajo del formulario con un efecto <i>slide</i>.</p>
       <p><strong>10.2.</strong> Elimina el <code>div#alert</code> del HTML y modifica la solución anterior para que sea jQuery quien inserte el div en el DOM.</p>
 
@@ -173,8 +254,10 @@
 &lt;/form&gt;</code></pre>
     </div>
 
+    <!-- Ejercicio 11 -->
     <div class="exercise">
-      <p><strong>11.</strong> Crea el código jQuery que inserte dinámicamente en el div con <code>#resultado</code> un mensaje con la opción seleccionada por el usuario en el siguiente <i>select</i>.</p>
+      <h3 id="ejercicio11">Ejercicio 11</h3>
+      <p>Crea el código jQuery que inserte dinámicamente en el div con <code>#resultado</code> un mensaje con la opción seleccionada por el usuario en el siguiente <i>select</i>.</p>
       <pre><code class="language-html">&lt;select id=&quot;brands&quot;&gt;
   &lt;option value=&quot;audi&quot;&gt;Audi&lt;/option&gt;
   &lt;option value=&quot;bmw&quot;&gt;BMW&lt;/option&gt;
@@ -184,11 +267,13 @@
 
 &lt;div id=&quot;resultado&quot;&gt;&lt;/div&gt;</code></pre>
 
-      <img src="img-ej-11.jpg" alt="Imagen ejercicio 10" style="max-width: 200px; margin: 10px auto; display: block; border: 1px solid #ccc; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+      <img src="img-ej-11.jpg" alt="Imagen ejercicio 10" style="max-width: 250px; margin: 10px auto; display: block; border: 1px solid #ccc; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
     </div>
 
+    <!-- Ejercicio 12 -->
     <div class="exercise">
-      <p><strong>12.</strong> Dado el siguiente formulario de login, los datos de usuario y contraseña se enviarán por GET asíncronamente con <code>$.ajax</code> a una página llamada <i>login.json</i>. Esa página devolverá simplemente un JSON con los parámetros <code>error</code> y <code>error_msj</code>. Si el parámetro <code>error</code> recibido es 0, inserta dinámicamente un mensaje debajo del formulario indicando que el inicio de sesión ha sido correcto. Si es distinto de 0 el mensaje debe ser el que se haya recibido en <code>error_msj</code>. Diseña el código jQuery que haga esa llamada asíncrona.</p>
+      <h3 id="ejercicio12">Ejercicio 12</h3>
+      <p>Dado el siguiente formulario de login, los datos de usuario y contraseña se enviarán por GET asíncronamente con <code>$.ajax</code> a una página llamada <i>login.json</i>. Esa página devolverá simplemente un JSON con los parámetros <code>error</code> y <code>error_msj</code>. Si el parámetro <code>error</code> recibido es 0, inserta dinámicamente un mensaje debajo del formulario indicando que el inicio de sesión ha sido correcto. Si es distinto de 0 el mensaje debe ser el que se haya recibido en <code>error_msj</code>. Diseña el código jQuery que haga esa llamada asíncrona.</p>
 
       <p><u>Formulario:</u></p>
       <pre><code class="language-html">&lt;form id=&quot;form-login&quot;&gt;
@@ -208,8 +293,10 @@
 }</code></pre>
     </div>
 
+    <!-- Ejercicio 13 -->
     <div class="exercise">
-      <p><strong>13.</strong> Una llamada Ajax a nuestro servidor nos devuelve una lista de coches y modelos en formato JSON en texto plano. Crea el código jQuery para insertar dinámicamente en el <code>div#respuesta</code> una lista ordenada de los coches que recibimos.</p>
+      <h3 id="ejercicio13">Ejercicio 13</h3>
+      <p>Una llamada Ajax a nuestro servidor nos devuelve una lista de coches y modelos en formato JSON en texto plano. Crea el código jQuery para insertar dinámicamente en el <code>div#respuesta</code> una lista ordenada de los coches que recibimos.</p>
 
       <p>Puedes utilizar cualquier herramienta web para visualizar mejor el JSON, por ejemplo <a href="https://jsonformatter.org/" target="_blank" rel="noopener noreferrer">jsonformatter.org</a>.</p>
 
@@ -239,8 +326,10 @@
       <img src="img-ej-13.jpg" alt="Imagen ejercicio 10" style="max-width: 200px; margin: 10px auto; display: block; border: 1px solid #ccc; padding: 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
     </div>
 
+    <!-- Ejercicio 14 -->
     <div class="exercise">
-      <p><strong>14.</strong> Dado el siguiente HTML, diseña el código jQuery para que se analice cada tecla pulsada en el input. Si es un carácter válido para números binarios se insertará. Si no lo es, no se insertará, se mostrará un mensaje de error durante 1 segundo y luego se ocultará (usa el método <code>delay()</code>).</p>
+      <h3 id="ejercicio14">Ejercicio 14</h3>
+      <p>Dado el siguiente HTML, diseña el código jQuery para que se analice cada tecla pulsada en el input. Si es un carácter válido para números binarios se insertará. Si no lo es, no se insertará, se mostrará un mensaje de error durante 1 segundo y luego se ocultará (usa el método <code>delay()</code>).</p>
 
       <pre><code class="language-html">&lt;style&gt;
   #error-message {
@@ -258,8 +347,10 @@
 &lt;div id=&quot;error-message&quot;&gt;Introduce sólo números binarios (0 ó 1).&lt;/div&gt;</code></pre>
     </div>
 
+    <!-- Ejercicio 15 -->
     <div class="exercise">
-      <p><strong>15.</strong> Dado el siguiente HTML, cuando el usuario quiera enviar el formulario se comprobará con jQuery si hay al menos un checkbox marcado. Si no hay ninguno, se mostrará un mensaje de error. Si hay al menos uno, es enviará el formulario.</p>
+      <h3 id="ejercicio15">Ejercicio 15</h3>
+      <p>Dado el siguiente HTML, cuando el usuario quiera enviar el formulario se comprobará con jQuery si hay al menos un checkbox marcado. Si no hay ninguno, se mostrará un mensaje de error. Si hay al menos uno, es enviará el formulario.</p>
       <pre><code class="language-html">&lt;form id=&quot;car-brands-form&quot;&gt;
   &lt;p&gt;Elige al menos una marca de coche:&lt;/p&gt;
   &lt;label&gt;&lt;input type=&quot;checkbox&quot; name=&quot;brand&quot; value=&quot;Toyota&quot;&gt; Toyota&lt;/label&gt;&lt;br&gt;
@@ -273,8 +364,10 @@
 &lt;div id=&quot;error-message&quot; style=&quot;color: red; display: none;&quot;&gt;Selecciona al menos una marca de coche.&lt;/div&gt;</code></pre>
     </div>
 
+    <!-- Ejercicio 16 -->
     <div class="exercise">
-      <p><strong>16.</strong> Dado el siguiente HTML/CSS, diseña el código jQuery para que se cargue asíncronamente con <code>load()</code> en el aside#res un HTML externo con resultados deportivos. Esta carga externa se producirá al cargar la página principal y posteriormente cada 5 segundos (usa <code>setInterval</code>). Cada vez que se produzca esta carga externa el aside hará un breve efecto de desaparecer y aparecer de nuevo para indicar al usuario la actualización. Además, si se produce un error en la carga, se mostrará en el aside un mensaje de error.</p>
+      <h3 id="ejercicio16">Ejercicio 16</h3>
+      <p>Dado el siguiente HTML/CSS, diseña el código jQuery para que se cargue asíncronamente con <code>load()</code> en el aside#res un HTML externo con resultados deportivos. Esta carga externa se producirá al cargar la página principal y posteriormente cada 5 segundos (usa <code>setInterval</code>). Cada vez que se produzca esta carga externa el aside hará un breve efecto de desaparecer y aparecer de nuevo para indicar al usuario la actualización. Además, si se produce un error en la carga, se mostrará en el aside un mensaje de error.</p>
       <pre><code class="language-html">&lt;style&gt;
   header {
     background-color: lightblue;
@@ -312,9 +405,71 @@
       <pre><code class="language-html">&lt;p&gt;España - 0 Francia - 0&lt;/p&gt;
 &lt;p&gt;Alemania - 0 Holanda - 0&lt;/p&gt;
 &lt;p&gt;Inglaterra - 0 Italia - 0&lt;/p&gt;</code></pre>
-
     </div>
 
+    <!-- Ejercicio 17 -->
+    <div class="exercise">
+      <h3 id="ejercicio17">Ejercicio 17</h3>
+      <p>Dado el siguiente HTML, diseña el código jQuery que haga lo siguiente:</p>
+
+      <p><strong>17.1.</strong>Al seleccionar alguna de las opciones del select:</p>
+      <ul style="margin: 0;">
+        <li>Si se ha seleccionado "Selecciona entrante" el <code>div#salsas</code> se vaciará y se ocultará.</li>
+        <li>Si se ha seleccionado "Patatas Fritas" se cargará con <code>load()</code> en <code>#salsas</code> el archivo patatas.txt, que contiene dos radiobuttons para que el usuario añada una salsa: ketchup o alioli. Se mostrará <code>#salsas</code> con un efecto slide.</li>
+        <li>Si se ha seleccionado "Nuggets de Pollo" se cargará con <code class="inline">load()</code> en <code>#salsas</code> el archivo nuggets.txt, que contendrá dos radiobuttons para que el usuario añada una salsa: barbacoa o mayonesa. Se mostrará <code>#salsas</code> con un efecto slide.</li>
+      </ul>
+
+      <p><strong>17.2.</strong> Al enviar el formulario:</p>
+      <ul style="margin: 0;">
+        <li>Se comprobará si se ha seleccionado alguna opción válida en el select. Si está seleccionada la primera se mostrará un mensaje de error indicándolo.</li>
+        <li>Se comprobará si alguno de los radiobuttons que se han cargado dinámicamente ha sido marcado. Si no es así y ninguno está marcado, se mostrará un mensaje de error. Si se ha marcado alguno, se mostrará un mensaje final indicando el entrante seleccionado y la salsa seleccionada.</li>
+      </ul>
+
+      <p><strong>17.3.</strong> Al seleccionar alguno de los dos radiobutton cargados dinámicamente.</p>
+      <ul style="margin: 0;">
+        <li>Se deberá <u>crear dinámicamente</u> al final del div correspondiente al radiobutton marcado un span que contenga el carácter '✓' en color verde. Si previamente se han creado otros span en otros radiobuttons, deben ser eliminados.</li>
+      </ul>
+
+      <p><u>HTML</u>:</p>
+      <pre><code class="language-html">&lt;h2&gt;Formulario de Entrantes&lt;/h2&gt;
+&lt;form id=&quot;form-entrantes&quot;&gt;
+  &lt;label for=&quot;select-entrantes&quot;&gt;Entrantes:&lt;/label&gt;
+  &lt;select id=&quot;select-entrantes&quot;&gt;
+    &lt;option value=&quot;none&quot; selected&gt;Selecciona entrante&lt;/option&gt;
+    &lt;option value=&quot;patatas&quot;&gt;Patatas Fritas&lt;/option&gt;
+    &lt;option value=&quot;nuggets&quot;&gt;Nuggets de Pollo&lt;/option&gt;
+  &lt;/select&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;div id=&quot;salsas&quot; style=&quot;display: none; padding: 0.5em; border: 1px solid #333&quot;&gt;&lt;/div&gt;&lt;br&gt;
+
+  &lt;button type=&quot;submit&quot;&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;br&gt;
+
+&lt;div id=&quot;error&quot; style=&quot;color: red;&quot;&gt;&lt;/div&gt;
+&lt;div id=&quot;resultado&quot; style=&quot;color: green;&quot;&gt;&lt;/div&gt;</code></pre>
+
+      <p><u>Archivo patatas.txt</u>:</p>
+      <pre><code class="language-html">&lt;div&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;ketchup&quot; name=&quot;salsa&quot; value=&quot;ketchup&quot;&gt;
+  &lt;label for=&quot;ketchup&quot;&gt;Ketchup&lt;/label&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;alioli&quot; name=&quot;salsa&quot; value=&quot;alioli&quot;&gt;
+  &lt;label for=&quot;alioli&quot;&gt;Alioli&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+
+      <p><u>Archivo nuggets.txt</u>:</p>
+      <pre><code class="language-html">&lt;div&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;barbacoa&quot; name=&quot;salsa&quot; value=&quot;barbacoa&quot;&gt;
+  &lt;label for=&quot;barbacoa&quot;&gt;Barbacoa&lt;/label&gt;
+&lt;/div&gt;
+&lt;div&gt;
+  &lt;input type=&quot;radio&quot; id=&quot;mayonesa&quot; name=&quot;salsa&quot; value=&quot;mayonesa&quot;&gt;
+  &lt;label for=&quot;mayonesa&quot;&gt;Mayonesa&lt;/label&gt;
+&lt;/div&gt;</code></pre>
+    </div>
   </div>
 
   <!-- highlight.js -->
