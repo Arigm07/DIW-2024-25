@@ -310,7 +310,7 @@
 
 &lt;script&gt;
   $(document).ready(function () {
-    $(&quot;#refresh&quot;).click(function () {
+    $(&quot;#refresh&quot;).on(&quot;click&quot;, function () {
       $.ajax({
         url: &quot;jquery-ej-13-coches.json&quot;,
         type: &quot;GET&quot;,
