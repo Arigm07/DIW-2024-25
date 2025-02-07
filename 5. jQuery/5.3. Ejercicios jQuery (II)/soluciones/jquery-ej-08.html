@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 8</title>
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+  <style>
+    #message {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .rojo {
+      color: red;
+    }
+
+    .azul {
+      color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+
+      <h2>Ejercicio 8</h2>
+      <h3>A partir del siguiente HTML en el que tenemos 3 checkboxes con marcas de coche, cuando el usuario marque o desmarque un checkbox aparecerá un mensaje indicando la opción u opciones seleccionadas. Si no ha seleccionado ninguna, también saldrá el mensaje indicándolo.</h3>
+
+      <hr>
+
+      <input type="checkbox" id="audi" name="brand" value="Audi">
+      <label for="audi">Audi</label>
+
+      <input type="checkbox" id="mercedes" name="brand" value="Mercedes">
+      <label for="mercedes">Mercedes</label>
+
+      <input type="checkbox" id="hyundai" name="brand" value="Hyundai">
+      <label for="hyundai">Hyundai</label>
+
+      <p id="message"></p>
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      // El evento que tenemos que usar podría ser "change", "input" o "click"
+      // El mejor: "change". Con "input" podríamos tener problemas de compatibilidad
+      // El selector también podría ser "input[type=checkbox]", pero es menos restrictivo
+      $("input[name=brand]").on("change", function () {
+        let texto = "Opciones seleccionadas: ";
+        let $cb_checked = $("input[name=brand]:checked");
+        let $mensaje = $("#message");
+        $mensaje.removeClass("rojo azul");
+
+        if ($cb_checked.length) {
+          $cb_checked.each(function () {
+            texto += $(this).val() + " ";
+          });
+          // .each() admite dos parámetros: el índice y el elemento, entonces:
+          // $cb_checked.each(function (index, element) {
+          //   texto += $(element).val() + " ";
+          // });
+
+          // Con map() y join() también es posible, pero es JS nativo
+          // texto = "Opciones seleccionadas: " + $cb_checked.map(function () { return $(this).val(); }).get().join(" ");
+
+          $("#message").text(texto);
+          $mensaje.addClass("azul");
+        }
+        else {
+          $("#message").text("No has seleccionado ninguna opción.");
+          $mensaje.addClass("rojo");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 4</title>
+  
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+
+  <style>
+    #navbar {
+      display: flex;
+      background-color: black;
+    }
+
+    .nav-item {
+      padding: 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    a.nav-item:hover,
+    a.active {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+      <h2>Ejercicio 4</h2>
+      <h3>Crea el código jQuery a partir del siguiente HTML/CSS, de forma que cuando se haga clic en alguno de los ítems, a ese ítem se le incluya la clase “active” y se le quite al que lo tuviera antes.</h3>
+
+      <hr>
+
+      <nav id="navbar">
+        <a class="nav-item active" href="#">Inicio</a>
+        <a class="nav-item" href="#">Nosotros</a>
+        <a class="nav-item" href="#">Servicios</a>
+        <a class="nav-item" href="#">Contacto</a>
+      </nav>
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $(".nav-item").on("click", function () {
+        $(".nav-item.active").removeClass("active");
+        // Otras formas de eliminar la clase active al ítem que ya lo tenía:
+        // $(".nav-item").removeClass("active");
+        // $(".nav-item.active").toggleClass("active");
+
+        // Ponemos la clase "active" al elemento que se ha hecho clic.
+        $(this).addClass("active");
+      });
+    });
+  </script>
+</body>
+
+</html>

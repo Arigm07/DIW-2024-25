@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 5</title>
+  
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+
+      <h2>Ejercicio 5</h2>
+      <h3>A partir del siguiente HTML, crea el código jQuery que haga que al pulsar el botón se habilite el input.</h3>
+
+      <hr>
+
+      <button id="my-button">Botón</button>
+      <input type="text" id="my-input" disabled>
+
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("#my-button").on("click", function () {
+        $("#my-input").prop("disabled", false);
+        // O también:
+        // $("#my-input").removeAttr("disabled");
+      });
+    });
+  </script>
+</body>
+
+</html>

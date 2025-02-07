@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 3</title>
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+
+  <style>
+    .sinalt {
+      border: 10px solid red;
+    }
+
+    .img-container {
+      display: flex;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+
+      <h2>Ejercicio 3</h2>
+      <h3>Crea el código jQuery que ponga la clase <code>sinalt</code> a todas las imágenes que no tengan el atributo <code>alt</code> o lo tengan vacío.</h3>
+
+      <hr>
+
+      <div class="img-container">
+        <img src="https://picsum.photos/id/684/200/200" alt="">
+        <img src="https://picsum.photos/id/685/200/200" alt="Vacío">
+        <img src="https://picsum.photos/id/686/200/200">
+        <img src="https://picsum.photos/id/688/200/200" alt="Soy un texto">
+      </div>
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("img[alt=''], img:not([alt])").addClass("sinalt");
+
+      // Otra forma de hacerlo, con .each() y .attr():
+      $("img").each(function () {
+        // .attr() devuelve undefined si el atributo no existe en el elemento, por tanto, podemos cambiar !$(this).attr("alt") por $(this).attr("alt") === undefined 
+        if (!$(this).attr("alt") || $(this).attr("alt").trim() === "") {
+          $(this).addClass("sinalt");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 10.2</title>
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+
+      <h2>Ejercicio 10</h2>
+      <h3>Crea el código jQuery que compruebe si los dos campos de texto del siguiente formulario de login están vacíos. Proporciona 2 soluciones:</h3>
+      <h3>10.2. Elimina el div #alert del HTML y modifica la solución anterior para que sea jQuery quien inserte el div en el DOM.</h3>
+
+      <hr>
+
+      <form id="login-form">
+        <input type="text" name="username" id="username" placeholder="Nombre de Usuario">
+        <input type="password" name="password" id="password" placeholder="Contraseña">
+        <input type="submit" id="submit-btn" value="Iniciar Sesión">
+      </form>
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("#login-form").on("submit", function (e) {
+        e.preventDefault(); // Evita que se envíe el formulario
+
+        // Oculta el mensaje de alerta si estaba visible
+        $("#alert").hide();
+
+        if ($("#username").val().trim() === "" || $("#password").val().trim() === "") {
+          if ($("#alert").length === 0) {
+            // Si el elemento no existe, lo creamos oculto.
+            // Para crearlo tenemos varias opciones.
+            // La más sencilla es, simplemente:
+            // $("#login-form").after("<div id='alert' style='display: none;'>Por favor, ingrese un usuario y una contraseña</div>");
+
+            // Esta es más bonita y evita errores de sintaxis:
+            // $("#login-form").after(
+            //   $("<div>", {
+            //     id: "alert",
+            //     text: "Por favor, ingrese un usuario y una contraseña",
+            //     css: { display: "none" }
+            //   })
+            // );
+
+            // O podrías usar insertAfter():
+            $("<div>")
+              .text("Por favor, ingrese un usuario y una contraseña")
+              .attr("id", "alert")
+              .hide() // .hide() y .css("display", "none") hacen lo mismo
+              .insertAfter("#login-form");
+          }
+          $("#alert").slideDown();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

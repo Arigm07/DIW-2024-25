@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 14</title>
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+
+  <style>
+    #error-message {
+      display: none;
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+
+      <h2>Ejercicio 14</h2>
+      <h3>Dado el siguiente HTML, diseña el código jQuery para que se analice cada tecla pulsada en el input. Si es un carácter válido para números binarios se insertará. Si no lo es, no se insertará, se mostrará un mensaje de error durante 1 segundo y luego se ocultará (usa el método <code>.delay()</code>).</h3>
+
+      <hr>
+
+      <form>
+        <label for="binary-input">Introduce un número binario:</label>
+        <input type="text" id="binary-input" maxlength="8">
+        <button type="submit">Enviar</button>
+      </form>
+
+      <div id="error-message">Introduce sólo números binarios (0 ó 1).</div>
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      // Tenemos que utilizar el evento keydown, que es el que permite capturar la tecla pulsada antes de que se inserte en el input
+      $('#binary-input').on('keydown', function (e) {
+        if (e.key !== '0' && e.key !== '1' && e.key !== 'Backspace') {
+          // Si la tecla pulsada no es 0, 1 o Backspace, mostramos el mensaje de error
+          $('#error-message').slideDown().delay(1000).slideUp();
+
+          // Y evitamos que se inserte en el input
+          e.preventDefault();
+        }
+      });
+
+      // Una mejora podría ser limpiar el timeout si se vuelve a pulsar una tecla no válida antes de que se oculte el mensaje de error
+      // let timeout;
+      // $('#binary-input').on('keydown', function (e) {
+      //   if (e.key !== '0' && e.key !== '1' && e.key !== 'Backspace') {
+      //     clearTimeout(timeout);
+      //     $('#error-message').slideDown();
+      //     timeout = setTimeout(function () {
+      //       $('#error-message').slideUp();
+      //     }, 1000);
+      //     e.preventDefault();
+      //   }
+      // });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 13</title>
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+
+      <h2>Ejercicio 13</h2>
+      <h3>Una llamada Ajax a nuestro servidor nos devuelve una lista de coches y modelos en formato JSON en texto plano. Crea el código jQuery para insertar dinámicamente en el <code>div#respuesta</code> una lista ordenada de los coches que recibimos.</h3>
+
+      <hr>
+
+      <input type="button" value="Actualizar" id="refresh">
+      <div id="respuesta"></div>
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("#refresh").on("click", function () {
+        $.ajax({
+          url: "jquery-ej-13-coches.txt",
+          type: "GET",
+          dataType: "json",
+          success: function (data) {
+
+            // Creamos el <ol> para la lista externa
+            let ol_externo = $("<ol>");
+
+            // Iteramos sobre el array de marcas
+            $.each(data, function (index, marca) {
+              // Creamos el <li> para la marca
+              let li = $("<li>").text(marca.marca);
+
+              // Creamos el <ol> para la lista interna
+              let ol_interno = $("<ol>");
+
+              // Iteramos sobre el array de coches
+              $.each(marca.coches, function (index, coche) {
+                // Creamos el <li> para el coche
+                let li = $("<li>").text(coche.modelo + ", " + coche.color.toLowerCase() + ", " + coche.precio);
+
+                // Añadimos el <li> al <ol> interno
+                ol_interno.append(li);
+              });
+
+              // Añadimos el <ol> interno al <li> de la marca
+              li.append(ol_interno);
+
+              // Añadimos el <li> de la marca al <ol> externo
+              ol_externo.append(li);
+            });
+
+            // Finalmente, añadimos el <ol> externo al div#respuesta
+            $("#respuesta").html(ol_externo);
+
+            // El $.each() se podría haber hecho también con:
+            // $(data).each(function (index, marca) {}
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

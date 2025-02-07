@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 1</title>
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+
+  <style>
+    textarea {
+      min-width: 200px;
+      min-height: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+      <h2>Ejercicio 1</h2>
+      <h3>Crea el código HTML y jQuery de un textarea y un contador de caracteres. Cuando el usuario escriba en el textarea se actualizará un contador del número de caracteres que tiene el textarea. Ese contador se mostrará al usuario justo debajo del textarea.</h3>
+
+      <hr>
+
+      <textarea id="textarea"></textarea>
+      <div id="char-count">Número de caracteres: <span>0</span></div>
+
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      // Contador de caracteres
+      $("#textarea").on("input", function () {
+        $("#char-count > span").text($(this).val().length);
+      });
+    });
+  </script>
+</body>
+
+</html>

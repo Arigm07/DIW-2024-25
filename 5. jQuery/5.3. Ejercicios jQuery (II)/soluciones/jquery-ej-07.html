@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 7</title>
+  
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+
+      <h2>Ejercicio 7</h2>
+      <h3>A partir del siguiente HTML en el que tenemos 3 radiobuttons con opciones de marcas de coche, cuando el usuario modifique la opción seleccionada aparecerá un mensaje indicando la opción seleccionada.</h3>
+
+      <hr>
+
+      <input type="radio" id="audi" name="brand" value="Audi">
+      <label for="audi">Audi</label>
+
+      <input type="radio" id="mercedes" name="brand" value="Mercedes">
+      <label for="mercedes">Mercedes</label>
+
+      <input type="radio" id="hyundai" name="brand" value="Hyundai">
+      <label for="hyundai">Hyundai</label>
+
+      <p id="message"></p>
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("input[name='brand']").on("change", function () {
+        $("#message").text("Has seleccionado " + $(this).val());
+        // También valdría usar html(): $("#message").html(...) 
+      });
+    });
+  </script>
+</body>
+
+</html>

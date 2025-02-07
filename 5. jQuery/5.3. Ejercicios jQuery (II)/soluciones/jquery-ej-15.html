@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 15</title>
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+
+      <h2>Ejercicio 15</h2>
+      <h3>Dado el siguiente HTML, cuando el usuario quiera enviar el formulario se comprobará con jQuery si hay al menos un checkbox marcado. Si no hay ninguno, se mostrará un mensaje de error. Si hay al menos uno, es enviará el formulario.</h3>
+
+      <hr>
+
+      <form id="car-brands-form">
+        <p>Elige al menos una marca de coche:</p>
+        <label><input type="checkbox" name="brand" value="Toyota"> Toyota</label><br>
+        <label><input type="checkbox" name="brand" value="Ford"> Ford</label><br>
+        <label><input type="checkbox" name="brand" value="Honda"> Honda</label><br>
+        <label><input type="checkbox" name="brand" value="BMW"> BMW</label><br>
+        <label><input type="checkbox" name="brand" value="Mercedes"> Mercedes</label><br><br>
+        <button type="submit">Enviar</button>
+      </form>
+
+      <div id="error-message" style="color: red; display: none;">Selecciona al menos una marca de coche.</div>
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $('#car-brands-form').on("submit", function (e) {
+        if ($('input[name="brand"]:checked').length === 0) {
+          // Si no hay ningún checkbox marcado, mostramos el mensaje de error y evitamos que se envíe el formulario
+          e.preventDefault();
+          if ($('#error-message').is(':visible')) {
+            // Si el mensaje de error ya está visible, lo hacemos parpadear
+            $('#error-message').fadeOut().fadeIn();
+          }
+          else {
+            $('#error-message').fadeIn();
+          }
+        }
+        else {
+          $('#error-message').hide();
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

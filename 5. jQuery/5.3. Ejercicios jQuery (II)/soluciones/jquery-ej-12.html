@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 12</title>
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+
+      <h2>Ejercicio 12</h2>
+      <h3>Dado el siguiente formulario de login, los datos de usuario y contraseña se enviarán por GET asíncronamente con <code class="inline">$.ajax</code> a una página llamada <code class="inline">login.json</code>. Esa página devolverá simplemente un JSON con los parámetros <code class="inline">error</code> y <code class="inline">error_msj</code>. Si el parámetro <code class="inline">error</code> recibido es 0, inserta dinámicamente un mensaje debajo del formulario indicando que el inicio de sesión ha sido correcto. Si es distinto de 0 el mensaje debe ser el que se haya recibido en <code class="inline">error_msj</code>. Diseña el código jQuery que haga esta llamada asíncrona.</h3>
+
+      <hr>
+
+      <form id="form-login">
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username">
+        <br>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password">
+        <br>
+        <button type="submit">Iniciar sesión</button>
+      </form>
+
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $('#form-login').on("submit", function (e) {
+        e.preventDefault();
+        $.ajax({
+          type: "GET",
+          url: "jquery-ej-12-login.txt",
+          dataType: "json",
+          data: {
+            username: $('#username').val(),
+            password: $('#password').val()
+          },
+          success: function (data) {
+            // Comprobamos si el mensaje existe
+            let mensaje = $("#mensaje");
+
+            if (mensaje.length === 0) {
+              // Si el elemento no existe, lo creamos oculto
+              mensaje = $("<div>").attr("id", "mensaje").css("display", "none");
+            }
+            else {
+              // Si sí existe, lo ocultamos
+              mensaje.hide();
+            }
+
+            // Insertamos el texto que corresponda en el mensaje
+            mensaje.text(data.error === 0 ? "Inicio de sesión correcto" : data.error_msj);
+
+            // Insertamos el mensaje en el formulario
+            $("#form-login").after(mensaje);
+
+            // Mostramos el mensaje
+            mensaje.slideDown();
+          },
+          error: function () {
+            console.error("Error al realizar la petición AJAX");
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

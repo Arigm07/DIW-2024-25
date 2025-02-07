@@ -1,0 +1,4 @@
+{
+  "error": 4,
+  "error_msj": "La contraseña es 1234, cambiala, so merluzo"
+}

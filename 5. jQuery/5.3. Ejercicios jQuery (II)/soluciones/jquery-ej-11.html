@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 11</title>
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+
+      <h2>Ejercicio 11</h2>
+      <h3>Crea el código jQuery que inserte y actualice dinámicamente en el div con id resultado un mensaje con la opción seleccionada por el usuario en el siguiente select:</h3>
+
+      <hr>
+
+      <select id="brands">
+        <option value="audi">Audi</option>
+        <option value="bmw">BMW</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="hyundai">Hyundai</option>
+      </select>
+
+      <div id="resultado"></div>
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $("#brands").on("change", function () {
+        // Si el ol#list no existe, lo creamos
+        if ($("ol#lista").length === 0) {
+          $("#resultado").append(
+            $("<ol>").attr("id", "lista")
+          );
+        }
+
+        // Insertamos un li con el mensaje dentro del ol
+        $("ol#lista").append(
+          $("<li>").text("Has seleccionado " + $(this).val())
+        );
+      });
+    });
+  </script>
+</body>
+
+</html>

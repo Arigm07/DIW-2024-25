@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 9</title>
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+
+  <style>
+    #ejemplo {
+      width: 200px;
+      padding: 20px;
+      border: 10px solid black;
+      margin: 5px;
+    }
+
+    #resultado {
+      font-family: Consolas, monospace;
+      margin-block: 20px;
+      padding: 1em;
+      background-color: #ececec;
+      border: 1px solid #333;
+      font-size: 0.875em;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid #ddd;
+    }
+
+    .table th,
+    .table td {
+      padding: 4px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .table th {
+      background-color: #f2f2f2;
+      text-align: center;
+    }
+
+
+
+    .table .centered {
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+
+      <h2>Ejercicio 9</h2>
+      <h3>9. Crea un código jQuery en el que se muestre en un <code>div</code> la diferencia entre los métodos <code>width()</code>, <code>innerWidth()</code>, <code>outerWidth()</code> y <code>outerWidth(true)</code> a partir del HTML/CSS siguiente:</h3>
+
+      <hr>
+
+      <div id="ejemplo"></div>
+
+      <div id="resultado"></div>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Método</th>
+            <th>¿Incluye <code>padding</code>?</th>
+            <th>¿Incluye <code>border</code>?</th>
+            <th>¿Incluye <code>margin</code>?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>.width()</code></td>
+            <td class="centered">❌</td>
+            <td class="centered">❌</td>
+            <td class="centered">❌</td>
+          </tr>
+          <tr>
+            <td><code>.innerWidth()</code></td>
+            <td class="centered">✅</td>
+            <td class="centered">❌</td>
+            <td class="centered">❌</td>
+          </tr>
+          <tr>
+            <td><code>.outerWidth()</code></td>
+            <td class="centered">✅</td>
+            <td class="centered">✅</td>
+            <td class="centered">❌</td>
+          </tr>
+          <tr>
+            <td><code>.outerWidth(true)</code></td>
+            <td class="centered">✅</td>
+            <td class="centered">✅</td>
+            <td class="centered">✅</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      let $ejemplo = $("#ejemplo");
+      let $resultado = $("#resultado");
+
+      $resultado.append($("<div>")
+        .text("Resultado:")
+        .css("font-weight", "bold"));
+
+      $resultado.append($("<div>")
+        .text("Ancho con .width(): " + $ejemplo.width() + "px"));
+
+      $resultado.append($("<div>")
+        .text("Ancho con .innerWidth(): " + $ejemplo.innerWidth() + "px"));
+
+      $resultado.append($("<div>")
+        .text("Ancho con .outerWidth(): " + $ejemplo.outerWidth() + "px"));
+
+      $resultado.append($("<div>")
+        .text("Ancho con .outerWidth(true): " + $ejemplo.outerWidth(true) + "px"));
+    });
+  </script>
+</body>
+
+</html>
