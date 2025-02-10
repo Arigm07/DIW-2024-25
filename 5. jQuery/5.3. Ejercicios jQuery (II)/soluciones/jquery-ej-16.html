@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 16</title>
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+
+  <style>
+    #ejemplo header {
+      background-color: lightblue;
+      height: 100px;
+      padding: 10px;
+    }
+
+    #ejemplo main {
+      display: grid;
+      grid-template-columns: 1fr minmax(200px, auto);
+    }
+
+    #ejemplo section {
+      background-color: lightcoral;
+      min-height: 200px;
+      padding: 10px;
+    }
+
+    #ejemplo aside {
+      background-color: lightgoldenrodyellow;
+      padding: 10px;
+    }
+
+    #ejemplo footer {
+      background-color: lightgreen;
+      height: 100px;
+      padding: 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+
+      <h2>Ejercicio 16</h2>
+      <h3>Dado el siguiente HTML, diseña el código jQuery para que se cargue asíncronamente con <code class="inline">load()</code> en el aside con <code class="inline">#res</code> un HTML externo con resultados deportivos. Esta carga externa se producirá al cargar la página principal y posteriormente cada 5 segundos (usa <code class="inline">setInterval</code>). Cada vez que se produzca esta carga externa el aside hará un breve efecto de desaparecer y aparecer de nuevo para indicar al usuario la actualización. Además, si se produce un error en la carga, se mostrará en el aside un mensaje de error.</h3>
+
+      <hr>
+
+      <div id="ejemplo">
+        <header>header</header>
+        <main>
+          <section>section</section>
+          <aside id="res">aside</aside>
+        </main>
+        <footer>footer</footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      // Carga los resultados al cargar la página
+      cargarResultados();
+
+      // Establece un intervalo para cargar resultados cada 5 segundos
+      setInterval(cargarResultados, 5000);
+    });
+
+    // Función para cargar resultados cada 5 segundos
+    function cargarResultados() {
+      $('#res').load("jquery-ej-16-resultados.txt", function (response, status, xhr) {
+        $('#res').fadeOut().fadeIn();
+        if (status == "error") {
+          $('#res').empty().text("Error al cargar los resultados.");
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

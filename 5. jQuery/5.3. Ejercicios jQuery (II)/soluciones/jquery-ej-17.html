@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 17</title>
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+</head>
+
+<body>
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+
+      <h2>Ejercicio 17</h2>
+      <h3>Dado el siguiente HTML, diseña el código jQuery que haga lo siguiente:</h3>
+
+      <h4>17.1. Al seleccionar alguna de las opciones del select:</h4>
+      <ul>
+        <li>Si se ha seleccionado "Selecciona entrante" el div #salsas se vaciará y se ocultará.</li>
+        <li>Si se ha seleccionado "Patatas Fritas" se cargará con <code class="inline">load()</code> en #salsas el archivo patatas.txt, que contiene dos radiobuttons para que el usuario añada una salsa: ketchup o alioli. Se mostrará #salsas con un efecto slide.</li>
+        <li>Si se ha seleccionado "Nuggets de Pollo" se cargará con <code class="inline">load()</code> en #salsas el archivo nuggets.txt, que contendrá dos radiobuttons para que el usuario añada una salsa: barbacoa o mayonesa. Se mostrará #salsas con un efecto slide.</li>
+      </ul>
+
+      <h4>17.2. Al enviar el formulario:</h4>
+      <ul>
+        <li>Se comprobará si se ha seleccionado alguna opción válida en el select. Si está seleccionada la primera se mostrará un mensaje de error indicándolo.</li>
+        <li>Se comprobará si alguno de los radiobuttons que se han cargado dinámicamente ha sido marcado. Si no es así y ninguno está marcado, se mostrará un mensaje de error. Si se ha marcado alguno, se mostrará un mensaje final indicando el entrante seleccionado y la salsa seleccionada.</li>
+      </ul>
+
+      <h4>17.3. Al seleccionar alguno de los dos radiobutton cargados dinámicamente:</h4>
+      <ul>
+        <li>Se deberá <u>crear dinámicamente</u> al final del div correspondiente al radiobutton marcado un span que contenga el carácter '✓' en color verde. Si previamente se han creado otros span en otros radiobuttons, deben ser eliminados.</li>
+      </ul>
+
+      <hr>
+
+      <h2>Formulario de Entrantes</h2>
+      <form id="form-entrantes">
+        <label for="select-entrantes">Entrantes:</label>
+        <select id="select-entrantes">
+          <option value="none" selected>Selecciona entrante</option>
+          <option value="patatas">Patatas Fritas</option>
+          <option value="nuggets">Nuggets de Pollo</option>
+        </select><br><br>
+
+        <div id="salsas" style="display: none; padding: 0.5em; border: 1px solid #333"></div><br>
+
+        <button type="submit">Enviar</button>
+      </form>
+
+      <br>
+
+      <div id="error" style="color: red;"></div>
+      <div id="resultado" style="color: green;"></div>
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      let $salsas = $('#salsas');
+      let $error = $('#error');
+      let $resultado = $('#resultado');
+
+      $('#select-entrantes').on("change", function () {
+        // Vaciamos los mensajes de error y ocultamos el div de salsas
+        $error.empty();
+        $resultado.empty();
+        $salsas.hide();
+
+        // Obtenemos el valor del select
+        let entranteSeleccionado = $(this).val();
+
+        // Si el entrante seleccionado es "Patatas Fritas", cargamos las salsas correspondientes
+        if (entranteSeleccionado === "patatas") {
+          // Si hay un error al cargar el archivo, mostramos un mensaje de error
+          $salsas.load('jquery-ej-17-patatas.txt', function (response, status) {
+            if (status === "error") {
+              $salsas.empty().text("Error al cargar las salsas.");
+            }
+            $salsas.slideDown();
+          });
+        }
+        // Si el entrante seleccionado es "Nuggets de Pollo", cargamos las salsas correspondientes
+        else if (entranteSeleccionado === "nuggets") {
+          // Si hay un error al cargar el archivo, mostramos un mensaje de error
+          $salsas.load('jquery-ej-17-nuggets.txt', function (response, status) {
+            if (status === "error") {
+              $salsas.empty().text("Error al cargar las salsas.");
+            }
+            $salsas.slideDown();
+          });
+        }
+        else {
+          // Si no se ha seleccionado ninguna opción válida, vaciamos el div de salsas
+          $salsas.empty();
+        }
+      });
+
+      $('#form-entrantes').on("submit", function (event) {
+        event.preventDefault();
+
+        let $select = $('#select-entrantes');
+        let $salsaSeleccionada = $('input[name="salsa"]:checked');
+
+        if ($select.val() === "none") {
+          $error.text("Por favor, selecciona un entrante válido.");
+        }
+        else if ($salsaSeleccionada.length === 0) {
+          $error.text("Por favor, selecciona una salsa.");
+        }
+        else {
+          $error.empty();
+          $resultado.text(`Has seleccionado ${$select.val()} con ${$salsaSeleccionada.val()}`);
+        }
+      });
+
+      // Ejercicio 17.3
+      // Agregamos marca de verificación al seleccionar un radiobutton
+      $salsas.on('change', 'input[type="radio"]', function () {
+        // Quitamos la marca de verificación a todos los elementos
+        $('input[name="salsa"]').siblings('span').remove();
+
+        // Y se la ponemos al radiobutton seleccionado.
+        $(this).parent().append(
+          $("<span>")
+            .text('✓')
+            .css('color', 'green'));
+      });
+    });
+  </script>
+</body>
+
+</html>

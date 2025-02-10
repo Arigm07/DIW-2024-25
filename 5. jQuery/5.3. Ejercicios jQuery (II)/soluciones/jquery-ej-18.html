@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicios jQuery (II). Ejercicio 18</title>
+
+  <script src="jquery-3.7.1.min.js"></script>
+  <script src="scripts_generales.js"></script>
+  <link rel="stylesheet" href="../../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+
+  <style>
+    #res-container {
+      max-width: 500px;
+      font-size: 0.75em;
+      border: 1px solid #cccccc;
+      background-color: #e6e6e6;
+      padding: 1em;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul#product-list li.product {
+      cursor: pointer;
+      padding: 0.5em;
+    }
+
+    ul#product-list li.product span {
+      font-size: 0.75em;
+      color: #fff;
+      margin-left: 0.5em;
+      padding: 0.325em;
+      background-color: #797edb;
+      border-radius: 0.25em;
+    }
+
+    ul#product-list li.product.active,
+    ul#product-list li.product:hover {
+      background-color: #ccc;
+    }
+
+    ul#product-list li.product ul.reviews {
+      padding: 0.5em;
+      margin: 0.5em;
+      background-color: #ffffff;
+      border-left: 8px solid #797edb;
+      font-size: 0.85em;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <nav id="sidebar">
+      <!-- El contenido de nav.html se cargará aquí -->
+    </nav>
+
+    <main>
+      <h1>Ejercicios jQuery (II)</h1>
+
+      <h2>Ejercicio 18</h2>
+      <h3>Realiza una petición AJAX a la URL <code>https://dummyjson.com/products</code> y obtén una funcionalidad como la que se describe a continuación:</h3>
+
+      <h4>18.1. Cuando se cargue la página, se mostrarán en <code>#res-container</code> un <code>&lt;ul&gt;</code> los productos con todos sus tags. Cada producto tendrá la clase <code>product</code> y un atributo llamado <code>data-product-id</code> donde se almacenará el <i>id</i> del producto.</h4>
+
+      <h4>18.2. Al hacer clic sobre cualquier producto, se hará una petición AJAX a la URL <code>https://dummyjson.com/products/id</code>, donde <i>id</i> es el identificador del producto almacenado en <code>data-product-id</code>. Se mostrarán las reviews (rating, nombre y descripción) del producto en un <code>&lt;ul&gt;</code> interno. Si las reviews del producto seleccionado se estaban mostrando, se ocultarán. En todos los casos, se ocultarán el resto de reviews. El producto en el que se ha hecho clic tendrá la clase <code>.active</code>.</h4>
+
+      <hr>
+      <div id="res-container"></div>
+
+    </main>
+  </div>
+
+  <script>
+    $(document).ready(function () {
+      $.ajax({
+        // url: "https://dummyjson.com/products?limit=10",
+        url: "jquery-ej-18-products.json",
+        dataType: "json",
+        success: function (response) {
+          // Obtenemos los productos
+          let products = response.products;
+
+          // Creamos el <ul>
+          let ul = $("<ul>").attr("id", "product-list");
+
+          // Recorremos los productos
+          $.each(products, function (index, product) {
+            // Creamos el <li>
+            let li = $("<li>")
+              .addClass("product")
+              .attr("data-product-id", product.id)
+              .append(product.title);
+
+            // Extraemos los tags y los añadimos al <li>
+            let tags = product.tags.map(tag => $("<span>").text(tag));
+            li.append(tags);
+
+            // Insertamos el producto en la lista
+            ul.append(li);
+          });
+
+          // Finalmente, insertamos el ul en #res-container
+          $("#res-container").append(ul);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.log("Error al obtener los productos:", textStatus, errorThrown);
+        }
+      });
+
+      $("#res-container").on("click", "li.product", function () {
+        // Almacenamos el producto donde se ha hecho clic y su ul.reviews
+        const this_product = $(this);
+        const this_reviewsList = this_product.find("ul.reviews");
+
+        // Si el ul de reviews existe (ya lo hemos cargado)...
+        if (this_reviewsList.length) {
+          // Quitamos todas las clases active de todos los productos
+          $(".product").removeClass("active");
+          // Y se la ponemos al sleccionado
+          this_product.addClass("active");
+
+          if (this_reviewsList.is(":visible")) {
+            // Si está visible, lo ocultamos
+            this_reviewsList.slideUp();
+          }
+          else {
+            // Si está oculto, ocultamos el resto y mostramos este
+            $(".reviews").slideUp();
+            this_reviewsList.slideDown();
+          }
+        }
+        else {
+          // Si el contenedor de reviews no existe es porque aún no lo hemos cargado
+          // Obtenemos el id del producto
+          let productId = this_product.attr("data-product-id");
+
+          // Hacemos la petición AJAX
+          $.ajax({
+            url: `https://dummyjson.com/products/${productId}`,
+            dataType: "json",
+            success: function (response) {
+              // Obtenemos las reviews del producto
+              let reviews = response.reviews;
+
+              // Creamos el objeto <ul> donde irán las reviews
+              let ul = $("<ul>").addClass("reviews");
+
+              // Recorremos las reviews
+              $.each(reviews, function (index, review) {
+                ul.append(
+                  $("<li>")
+                    .text(`${review.rating}⭐ ${review.reviewerName}: ${review.comment}`));
+              });
+
+              // Insertamos las reviews en el producto
+              this_product.append(ul);
+
+              // Ocultamos todas las reviews
+              $("ul.reviews").slideUp();
+
+              // Quitamos todas las clases active de todos los productos
+              $(".product").removeClass("active");
+              // Y se la ponemos al sleccionado
+              this_product.addClass("active");
+
+              // Y mostramos las de este producto
+              ul.slideDown();
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+              console.log("Error al obtener las reviews del producto:", textStatus, errorThrown);
+            }
+          });
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
