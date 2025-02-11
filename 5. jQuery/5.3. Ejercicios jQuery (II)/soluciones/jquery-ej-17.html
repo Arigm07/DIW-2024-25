@@ -100,10 +100,6 @@
             $salsas.slideDown();
           });
         }
-        else {
-          // Si no se ha seleccionado ninguna opción válida, vaciamos el div de salsas
-          $salsas.empty();
-        }
       });
 
       $('#form-entrantes').on("submit", function (event) {
@@ -127,16 +123,16 @@
       // Ejercicio 17.3
       // Agregamos marca de verificación al seleccionar un radiobutton
       $salsas.on('change', 'input[type="radio"]', function () {
-        // Quitamos la marca de verificación a todos los elementos
-        $('input[name="salsa"]').siblings('span').remove();
+          // Quitamos la marca de verificación a todos los elementos
+          $('input[name="salsa"]').siblings('span').remove();
 
-        // Y se la ponemos al radiobutton seleccionado.
-        $(this).parent().append(
-          $("<span>")
-            .text('✓')
-            .css('color', 'green'));
+          // Y se la ponemos al radiobutton seleccionado.
+          $(this).parent().append(
+            $("<span>")
+              .text('✓')
+              .css('color', 'green'));
+        });
       });
-    });
   </script>
 </body>
 

@@ -125,7 +125,7 @@
         if (this_reviewsList.length) {
           // Quitamos todas las clases active de todos los productos
           $(".product").removeClass("active");
-          // Y se la ponemos al sleccionado
+          // Y se la ponemos al seleccionado
           this_product.addClass("active");
 
           if (this_reviewsList.is(":visible")) {
@@ -154,7 +154,7 @@
               // Creamos el objeto <ul> donde irán las reviews
               let ul = $("<ul>").addClass("reviews");
 
-              // Recorremos las reviews
+              // Creamos las reviews
               $.each(reviews, function (index, review) {
                 ul.append(
                   $("<li>")
@@ -169,7 +169,7 @@
 
               // Quitamos todas las clases active de todos los productos
               $(".product").removeClass("active");
-              // Y se la ponemos al sleccionado
+              // Y se la ponemos al seleccionado
               this_product.addClass("active");
 
               // Y mostramos las de este producto
