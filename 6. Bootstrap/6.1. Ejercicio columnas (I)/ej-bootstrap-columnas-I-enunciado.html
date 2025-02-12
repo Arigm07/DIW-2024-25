@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap. Ejercicio columnas (I)</title>
+  <link rel="stylesheet" href="../../Utils/css/general.css">
+  <link rel="stylesheet" href="estilos_generales.css">
+
+  <!-- Tema CSS para highlight.js -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/night-owl.min.css" integrity="sha512-i5X6Fdn/ZqvGSqPrdMa3FgcpXM/Nr6YccSKFYT93zljl/HZDEpvBbE5Pxp91eiWGccZLrL/LDQJd7fjTRYsVaA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <style>
+    #container {
+      display: block !important;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+    }
+
+    p {
+      margin-top: 0;
+    }
+
+    .exercise {
+      margin-block: 20px;
+    }
+
+    .exercise>p {
+      margin-bottom: 0;
+    }
+
+    code.hljs {
+      border-radius: 5px;
+    }
+
+    pre:has(code.hljs) {
+      margin: 0 !important;
+    }
+
+    ul {
+      list-style: none;
+      /* Elimina los puntos de la lista */
+      padding-left: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    ul li {
+      background: #ffffff;
+      /* Fondo blanco */
+      border: 1px solid #ddd;
+      /* Borde sutil */
+      margin: 8px 0;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.6;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease-in-out;
+    }
+
+    ul li:hover {
+      background: #f8f9fa;
+      /* Cambia el fondo al pasar el ratón */
+    }
+
+    ul li ul {
+      margin-top: 6px;
+      padding-left: 20px;
+    }
+
+    ul li ul li {
+      background: #f1f1f1;
+      /* Fondo más claro para los elementos anidados */
+      border-left: 4px solid #007bff;
+      /* Borde azul */
+      font-size: 13px;
+    }
+
+    ul li ul li ul li {
+      background: #e2e6ea;
+      /* Un tono más oscuro para subniveles */
+      border-left: 4px solid #0056b3;
+      /* Azul más oscuro */
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <h1>Bootstrap. Ejercicio columnas (I)</h1>
+
+    <p>A partir del HTML proporcionado, añade las clases Bootstrap necesarias para alcanzar el layout descrito a continuación:</p>
+
+    <pre><code class="languaje-html">&lt;div class=&quot;&quot;&gt;1. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti, hic amet optio accusantium dignissimos eius consequuntur culpa. Animi, minima. Qui temporibus cum mollitia ad dolores libero, eveniet blanditiis illo quos.&lt;/div&gt;
+&lt;div class=&quot;&quot;&gt;2. Lorem ipsum dolor sit amet.&lt;/div&gt;
+
+&lt;div class=&quot;&quot;&gt;3. Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus, illo?&lt;/div&gt;
+&lt;div class=&quot;&quot;&gt;4. Lorem ipsum.&lt;/div&gt;
+
+&lt;div class=&quot;&quot;&gt;5. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit, consectetur. Ex qui eligendi maiores expedita!&lt;/div&gt;
+&lt;div class=&quot;&quot;&gt;6. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis, praesentium?&lt;/div&gt;</code></pre>
+
+    <ul>
+      <li>Toda la página:
+        <ul>
+          <li>El contenedor principal siempre ocupará todo el ancho de la pantalla, no llegará a tocar los bordes de la página y tendrá un borde oscuro medio (3 de 5).</li>
+          <li>El texto estará siempre centrado.</li>
+          <li>Todas las filas tendrán padding. Además, las dos primeras tendrán un borde oscuro medio (3 de 5).</li>
+        </ul>
+      </li>
+      <li>Fila 1:
+        <ul>
+          <li>El primer elemento ocupará 4 columnas en pantallas pequeñas y 8 en pantallas medianas y superiores.</li>
+          <li>El segundo elemento ocupará 4 de 12 columnas de ancho en pantallas pequeñas y estará alineado a la derecha.
+            <ul>
+              <li>Verticalmente estará centrado en pantallas pequeñas.</li>
+              <li>Estará alineado en la parte superior en pantallas medianas.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Fila 2:
+        <ul>
+          <li>El primer elemento ocupará el 100% de la anchura en pantallas grandes y 3 de 12 columnas de ancho en pantallas medianas.</li>
+          <li>El segundo elemento ocupará el ancho mínimo necesario para alojar su contenido y estará alineado verticalmente en la parte inferior.
+            <ul>
+              <li>Aparecerá en primer lugar en pantallas grandes.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Fila 3:
+        <ul>
+          <li>La fila alineará su contenido verticalmente en el centro.</li>
+          <li>El primer elemento ocupará el ancho mínimo necesario para contener su contenido.
+            <ul>
+              <li>Se alineará verticalmente en la parte inferior en pantallas grandes.</li>
+              <li>Se alineará en el centro en pantallas medianas.</li>
+              <li>Se alineará en la parte superior en pantallas pequeñas.</li>
+            </ul>
+          </li>
+          <li>El segundo elemento ocupará 3 columnas en pantallas pequeñas.</li>
+          <li>En pantallas grandes habrá un espacio vacío de 3 columnas entre los dos elementos.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <!-- highlight.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js" integrity="sha512-6yoqbrcLAHDWAdQmiRlHG4+m0g/CT/V9AGyxabG8j7Jk8j3r3K6due7oqpiRMZqcYe9WM2gPcaNNxnl2ux+3tA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>hljs.highlightAll();</script>
+
+  <!-- Función para copiar el contenido del pre tag -->
+  <script src="../../Utils/js/copy-button-pre-tag.js"></script>
+</body>
+
+</html>
