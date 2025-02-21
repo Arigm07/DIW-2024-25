@@ -1,0 +1,258 @@
+{
+  // Asocia el editor de archivos .ipynb con el tipo de editor 'jupyter-notebook'
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  // Establece la ubicación de la barra de herramientas de las celdas en el cuaderno de Jupyter
+  "notebook.cellToolbarLocation": {
+    "default": "right",
+    "jupyter-notebook": "left"
+  },
+  // Formatea el código cuando se pega algo en el documento
+  "editor.formatOnPaste": true,
+  // Formatea el código cuando se guarda el documento
+  "editor.formatOnSave": true,
+  // Habilita la edición vinculada, donde los cambios en una selección se reflejan automáticamente en otras instancias de la misma selección
+  "editor.linkedEditing": true,
+  // Establece el tamaño de la pestaña del editor en 2 espacios
+  "editor.tabSize": 2,
+  // Establece el ajuste de línea en heredar para el editor de diferencias
+  "diffEditor.wordWrap": "inherit",
+  // Establece el ajuste de línea en activado para el editor
+  "editor.wordWrap": "on",
+  // Establece la columna de ajuste de línea en 160 caracteres
+  "editor.wordWrapColumn": 160,
+  // Establece la longitud de línea de ajuste de formato HTML en 0, lo que indica que no hay límite de longitud
+  "html.format.wrapLineLength": 0,
+  // Establece el tamaño de fuente integrado del terminal en 20
+  "terminal.integrated.fontSize": 20,
+  // Habilita el formateo de código al escribir en el editor para archivos Python
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  // Activa la importación automática experimental de TabNine
+  "tabnine.experimentalAutoImports": true,
+  // Oculta los mensajes informativos en Live Server
+  "liveServer.settings.donotShowInfoMsg": true,
+  // Establece el linting de propiedades duplicadas en CSS en advertencia
+  "css.lint.duplicateProperties": "warning",
+  // Ignora las reglas de CSS vacías en el linting
+  "css.lint.emptyRules": "ignore",
+  // Muestra guías de pares de corchetes en el editor
+  "editor.guides.bracketPairs": true,
+  // Configura las variables de entorno para el terminal integrado en Windows
+  "terminal.integrated.env.windows": {},
+  // Habilita la recuperación automática de Git
+  "git.autofetch": true,
+  // Establece el tema de iconos en el área de trabajo
+  "workbench.iconTheme": "vscode-icons",
+  // Habilita el zoom con la rueda del ratón en el editor
+  "editor.mouseWheelZoom": true,
+  // Configura la visualización de los hovers de GitLens sobre la línea actual
+  "gitlens.hovers.currentLine.over": "line",
+  // Establece el formato de fecha predeterminado para GitLens
+  "gitlens.defaultDateFormat": "DD-MMM-YYYY hh:mm:ss",
+  // Establece el formato de fecha corto predeterminado para GitLens
+  "gitlens.defaultDateShortFormat": "DD-MM-YY",
+  // Establece el formato de hora predeterminado para GitLens
+  "gitlens.defaultTimeFormat": "hh:mm:ss",
+  // Establece el perfil predeterminado del terminal integrado en Windows
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  // Evita la confirmación antes de sincronizar con Git
+  "git.confirmSync": false,
+
+  // Establece el formateador predeterminado del editor en Prettier para todos los archivos
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Establece el formateador predeterminado del editor en HTML para archivos HTML
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+
+  // Configuraciones de compilación de Sass en vivo
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "~/../css",
+      "savePathReplacementPairs": null,
+      "generateMap": false
+    }
+    // {
+    //   "format": "compressed",
+    //   "extensionName": "-min.css",
+    //   "savePath": "~/../css",
+    //   "savePathReplacementPairs": null,
+    //   "generateMap": false
+    // }
+  ],
+  // Establece el tamaño de fuente del editor en 18
+  "editor.fontSize": 18,
+
+  // Configura el proveedor experimental de AI para GitLens
+  "gitlens.ai.experimental.provider": "openai",
+
+  // Configura el modelo experimental de OpenAI para GitLens
+  "gitlens.ai.experimental.openai.model": "gpt-4-1106-preview",
+
+  // Habilita el margen de glifo en el editor (por defecto)
+  "editor.glyphMargin": true,
+
+  // Establece el estilo del indicador de llaves para el arco iris de sangría
+  "indentRainbow.indicatorStyle": "light",
+
+  // Configura las etiquetas de comentarios mejorados en el editor
+  "better-comments.multilineComments": true,
+  "better-comments.tags": [
+    {
+      "tag": "!!",
+      "color": "#FF2D00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "?",
+      "color": "#3498DB",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "//",
+      "color": "#474747",
+      "strikethrough": true,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "todo",
+      "color": "#FF8C00",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    },
+    {
+      "tag": "*",
+      "color": "#98C379",
+      "strikethrough": false,
+      "underline": false,
+      "backgroundColor": "transparent",
+      "bold": false,
+      "italic": false
+    }
+  ],
+
+  // Establece un conjunto de colores independiente por tipo de paréntesis para la colorización de pares de corchetes en el editor
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+
+  // Establece el ancho de impresión de Prettier en 999, lo que indica que no hay límite de ancho de línea
+  "prettier.printWidth": 999,
+
+  // Establece las preferencias de idioma de Spell Checker
+  "cSpell.language": "en,es-ES,lorem,en-GB,en-US",
+
+  // Añade palabras personalizadas al diccionario de Spell Checker
+  "cSpell.userWords": ["asíncronamente", "Atleti", "cedible", "Cedible", "codepen", "contenteditable", "descomentar", "dinámicamente", "extracomunitario", "Extracomunitario", "extracomunitarios", "formateador", "imprecisión", "imprecisiones", "Inicialización", "mediapunta", "milisegundos", "multilínea", "Parsea", "Parsear", "Picsum", "problemillas", "radiobuttons", "recalculamos", "recursivamente", "redimensionada", "redimensionar", "redirecciones", "Reseteamos", "resituando", "reutilizables", "sobrescribirlo", "Subelemento", "subelementos", "tabulación"],
+
+  // Especifica directorios donde Git Project Manager buscará repositorios Git
+  "gitProjectManager.baseProjectsFolders": ["D:\\PROGRAMACION\\PROYECTOS", "D:\\COPIAS SEGURIDAD D\\Navalmoral 23-24\\2º DAW. DIW 23-24", "D:\\COPIAS SEGURIDAD D\\Navalmoral 24-25\\2º DAW. DIW 24-25"],
+
+  // Desactiva la verificación de etiquetas HTML en Live Server
+  "liveServer.settings.donotVerifyTags": true,
+
+  // Ajusta la escala del minimapa (aumenta el tamaño del minimapa)
+  "editor.minimap.scale": 2,
+
+  // Muestra el deslizador del minimapa de forma permanente
+  "editor.minimap.showSlider": "always",
+
+  // Oculta automáticamente el minimapa cuando no se usa
+  "editor.minimap.autohide": true,
+
+  // Define el comportamiento del clic derecho en la terminal integrada (valor por defecto)
+  "terminal.integrated.rightClickBehavior": "default",
+
+  // Personaliza los colores de los tokens en el editor para comandos y opciones de shell
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        // Color dorado para comandos como git, echo, touch
+        "scope": [
+          "support.function.builtin.shell",
+          "entity.name.function.shell",
+          "support.function.git.shell" // Color específico para comandos git
+        ],
+        "settings": {
+          "foreground": "#dcdcaa" // Buen contraste para comandos
+        }
+      },
+      {
+        // Color verde claro para opciones como -A, -m
+        "scope": ["constant.other.option.dash.shell", "constant.other.option", "punctuation.definition.parameter.shell"],
+        "settings": {
+          "foreground": "#a8ff50" // Buen contraste para opciones
+        }
+      },
+      {
+        // Color azul brillante para cadenas de texto entre comillas
+        "scope": ["string.quoted.double.shell", "string.quoted.single.shell"],
+        "settings": {
+          "foreground": "#5caeff"
+        }
+      },
+      {
+        // Color rojo anaranjado para redirecciones y operadores
+        "scope": ["keyword.operator.redirect.shell", "punctuation.definition.variable.shell"],
+        "settings": {
+          "foreground": "#ffffff"
+        }
+      }
+    ]
+  },
+
+  // Permite que Super Maven respete el archivo .gitignore
+  "supermaven.allowGitignore": true,
+
+  // Habilita Super Maven para todos los archivos
+  "supermaven.enable": {
+    "*": false,
+    "markdown": false
+  },
+
+  // Establece el tamaño máximo de la lista de proyectos recientes en Git Project Manager
+  "gitProjectManager.recentProjectsListSize": 10,
+
+  // Desactiva el envío de telemetría por parte de Red Hat
+  "redhat.telemetry.enabled": false,
+  "liveServer.settings.CustomBrowser": "firefox",
+  "telemetry.telemetryLevel": "off",
+  "gitlens.telemetry.enabled": false,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorWidth": 3,
+  "terminal.integrated.cursorBlinking": true,
+  "highlightOnCopy.timeout": 300,
+  "workbench.editor.wrapTabs": true,
+  "workbench.editor.pinnedTabsOnSeparateRow": true,
+  "liveServer.settings.ChromeDebuggingAttachment": false,
+  "php.validate.executablePath": "C:wamp64\binphpphp8.2.0php.exe",
+  "files.autoSave": "afterDelay",
+  "jdk.jdkhome": "c:\\Program Files (x86)\\Java\\Oracle_JDK-23",
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  },
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  }
+}
