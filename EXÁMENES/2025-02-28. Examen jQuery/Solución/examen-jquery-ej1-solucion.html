@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Examen jQuery. Ejercicio 1</title>
+  <link rel="stylesheet" href="css/estilos-generales.css">
+  <script src="js/jquery-3.7.1.min.js"></script>
+  <style>
+    .container-ej1 {
+      max-width: 900px;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    #lista-izqda,
+    #lista-dcha {
+      width: 200px;
+      height: 300px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background: #fffddd;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background: lightcoral;
+    }
+
+    .active {
+      background: lightcoral;
+      color: #fff;
+    }
+
+    .botones {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h1>Examen jQuery. Ejercicio 1</h1>
+
+    <p><strong>1.1.</strong> Al hacer clic sobre uno de los elementos de cualquiera de las dos listas, se pondrá la clase "active" a ese elemento si no la tenía, se quitará si la tenía y se eliminará del resto de elementos. <strong>[2 puntos]</strong></p>
+
+    <p><strong>1.2.</strong> Al pulsar sobre el botón &quot;&gt;&gt;&quot; llevará al elemento activo de la lista de la izquierda a la lista de la derecha. Al pulsar sobre el botón &quot;&lt;&lt;&quot; llevará al elemento activo de la lista de la derecha a la lista de la izquierda. En ambos casos, si no hay ningún elemento activo, los botones no harán nada. <strong>[2 puntos]</strong></p>
+
+    <div class="container-ej1">
+      <div id="lista-izqda">
+        <ul>
+          <li>Ferrari Testarossa</li>
+          <li>Porsche 911</li>
+          <li>Lamborghini Diablo</li>
+          <li>Audi R8</li>
+          <li>Mercedes-AMG GT</li>
+        </ul>
+      </div>
+
+      <div class="botones">
+        <button id="mover-dcha">&gt;&gt;</button>
+        <button id="mover-izqda">&lt;&lt;</button>
+      </div>
+
+      <div id="lista-dcha">
+        <ul></ul>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Inserta aquí tu código jQuery
+    $(document).ready(function () {
+      // No es estrictamente necesario usar un manejador de eventos delegado aquí porque lo que hacemos en el 1.2. es mover el elemento, no crearlo.
+      $("ul").on("click", "li", function () {
+        if ($(this).hasClass("active")) {
+          $("li").removeClass("active");
+        }
+        else {
+          $("li.active").removeClass("active");
+          $(this).addClass("active");
+        }
+      });
+
+      // Mover un elemento a la derecha
+      $("#mover-dcha").on("click", function () {
+        let itemSeleccionado = $("#lista-izqda .active");
+        if (itemSeleccionado.length) {
+          $("#lista-dcha ul").append(itemSeleccionado.removeClass("active"));
+        }
+      });
+
+      // Mover un elemento a la izquierda
+      $("#mover-izqda").on("click", function () {
+        let itemSeleccionado = $("#lista-dcha .active");
+        if (itemSeleccionado.length) {
+          $("#lista-izqda ul").append(itemSeleccionado.removeClass("active"));
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
