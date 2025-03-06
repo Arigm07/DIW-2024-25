@@ -233,22 +233,51 @@
 
   // Desactiva el envío de telemetría por parte de Red Hat
   "redhat.telemetry.enabled": false,
+  // Especifica el navegador predeterminado que Live Server utilizará para abrir las páginas
   "liveServer.settings.CustomBrowser": "firefox",
+
+  // Controla el nivel de recopilación de datos de telemetría por parte de Visual Studio Code
   "telemetry.telemetryLevel": "off",
+
+  // Determina si GitLens envía datos de telemetría
   "gitlens.telemetry.enabled": false,
+
+  // Activa o desactiva la animación suave del cursor
   "editor.cursorSmoothCaretAnimation": "on",
+
+  // Define el ancho del cursor en píxeles
   "editor.cursorWidth": 3,
+
+  // Controla si el cursor en el terminal integrado parpadea
   "terminal.integrated.cursorBlinking": true,
+
+  // Establece el tiempo en milisegundos que dura el resaltado después de copiar texto
   "highlightOnCopy.timeout": 300,
+
+  // Permite que las pestañas del editor se ajusten automáticamente en la barra de pestañas
   "workbench.editor.wrapTabs": true,
+
+  // Muestra las pestañas fijadas en una fila separada en la barra de pestañas del editor
   "workbench.editor.pinnedTabsOnSeparateRow": true,
+
+  // Desactiva la función de adjuntar la depuración de Chrome en Live Server
   "liveServer.settings.ChromeDebuggingAttachment": false,
-  "php.validate.executablePath": "C:wamp64\binphpphp8.2.0php.exe",
+
+  // Define la ruta del ejecutable de PHP para la validación de código
+  "php.validate.executablePath": "C:\\wamp64\\bin\\php\\php8.2.0\\php.exe",
+
+  // Configura el guardado automático de archivos después de un breve retraso
   "files.autoSave": "afterDelay",
+
+  // Establece la ruta de instalación del JDK utilizado por la configuración de Java
   "jdk.jdkhome": "c:\\Program Files (x86)\\Java\\Oracle_JDK-23",
+
+  // Especifica el formateador predeterminado para archivos Java
   "[java]": {
     "editor.defaultFormatter": "redhat.java"
   },
+
+  // Habilita o deshabilita GitHub Copilot en distintos tipos de archivos
   "github.copilot.enable": {
     "*": false,
     "plaintext": false,
